@@ -57,7 +57,7 @@ class LoginWithEmail extends React.Component {
                 </View>
 
                 <Text style={Platform.OS == "ios"?styles.forgetPassios:styles.forgetPass}>Forgot Password ?</Text>
-                <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('LoginWithEmail')}>
+                <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('Welcome')}>
                     <Text style={styles.signtext}>Login</Text>
                 </TouchableOpacity>
                 <Text style={styles.simpletext}>Login with <Text style={styles.email}>Mobile</Text> </Text>
