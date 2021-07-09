@@ -1,7 +1,6 @@
 import React from 'react';
 
-import {View,Text,Image} from 'react-native';
-import Styles from './Style';
+import {View,StyleSheet,Image} from 'react-native';
 import SplashScreen from 'react-native-splash-screen'
 
 export default class SplashScreen1 extends React.Component{
@@ -15,10 +14,18 @@ export default class SplashScreen1 extends React.Component{
 
     render(){
         return(
-            <View style={Styles.mainContainer}>
-                <Image source={require('../images/logo.jpeg')} style={{width:'98%'}}/>
-               {/* <Text>CASPER GOLF</Text> */}
+            <View style={styles.container}>
+                <Image source={require('../images/logo.jpeg')} style={styles.images}/>
             </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+    },
+    images:{
+        width:'98%'
+    }
+})

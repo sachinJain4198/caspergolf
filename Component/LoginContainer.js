@@ -1,10 +1,6 @@
 import React from 'react';
 
-import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput } from 'react-native';
-// import { GoogleSignin, statusCodes } from 'react-native-google-signin';
-// import { GoogleSignin } from '@react-native-community/google-signin';
-// import { TextInput } from 'react-native-paper';
-import Styles from './Style';
+import { View, Text, TouchableOpacity, StyleSheet, Image, StatusBar, TextInput } from 'react-native';
 import PhoneInput from "react-native-phone-number-input";
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
@@ -13,16 +9,9 @@ class LoginContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
-            password: '',
-            hidePass1: true,
             value: '',
             phoneInput: null
         }
-    }
-
-    componentDidMount() {
-
     }
 
     onPressFlag() {
@@ -36,6 +25,9 @@ class LoginContainer extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar
+                    hidden={true}
+                />
                 <View style={styles.innerview}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                         <Image source={require('../images/left-arrow.png')} style={styles.image} />
@@ -55,9 +47,6 @@ class LoginContainer extends React.Component {
                     onChangeFormattedText={(text) => {
                         this.setState({ value: text })
                     }}
-                    // withDarkTheme
-                    // withShadow
-                    // autoFocus
                     placeholder="Mobile No"
                     containerStyle={styles.containerStyle}
                     textContainerStyle={styles.textContainerStyle}
@@ -79,7 +68,8 @@ class LoginContainer extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        backgroundColor: '#FFFFFF'
     },
     text: {
         fontSize: 20,
@@ -94,7 +84,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         justifyContent: 'center',
         textAlign: 'center',
-        marginTop:40
+        marginTop: 40
     },
     logintext: {
         color: 'black',
@@ -138,18 +128,28 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: verticalScale(20)
     },
-    containerStyle:{
-        width: '90%', height:50, alignSelf: 'center', marginTop: 70, borderColor: '#D8D8D8', borderWidth: 1,borderRadius:5 
+    containerStyle: {
+        width: '90%',
+        height: 50,
+        alignSelf: 'center',
+        marginTop: 70,
+        borderColor: '#D8D8D8',
+        borderWidth: 1,
+        borderRadius: 5
     },
-    textContainerStyle:{
-        borderWidth: 1, borderColor: '#D8D8D8'
+    textContainerStyle: {
+        backgroundColor: '#FFFFFF',
+        borderLeftWidth: 1,
+        borderColor: '#D8D8D8',
     },
-    codeTextStyle:{
-        height:40,alignSelf:'center',marginTop:20
+    codeTextStyle: {
+        height: 40,
+        alignSelf: 'center',
+        marginTop: 20
     },
-    textInputStyle:{
-        height:80,
-        marginTop:2
+    textInputStyle: {
+        height: 80,
+        marginTop: 2
     }
 });
 

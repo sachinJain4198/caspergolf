@@ -1,11 +1,6 @@
 import React from 'react';
 
-import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput } from 'react-native';
-// import { GoogleSignin, statusCodes } from 'react-native-google-signin';
-// import { GoogleSignin } from '@react-native-community/google-signin';
-// import { TextInput } from 'react-native-paper';
-import Styles from './Style';
-// import PhoneInput from 'react-native-phone-input';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput, StatusBar } from 'react-native';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
 
@@ -21,14 +16,13 @@ class Welcome extends React.Component {
         }
     }
 
-    componentDidMount() {
-
-    }
-
-
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar
+                    hidden={true}
+
+                />
                 <View style={styles.innerview}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                         <Image source={require('../images/left-arrow.png')} style={styles.image} />
@@ -38,49 +32,56 @@ class Welcome extends React.Component {
 
                 <Text style={styles.text}>Before proceeding we require some {'\n'}important imformation</Text>
 
-                <TextInput
-                    style={styles.passtext}
-                    placeholder="Enter your First Name"
-                    value={this.state.password}
-                    onChangeText={this.handlePass}
-                />
-
-                <TextInput
-                    style={styles.lastext}
-                    placeholder="Enter your Last Name"
-                    value={this.state.password}
-                    onChangeText={this.handlePass}
-                />
-
-                <View style={styles.gender}>
-                <TouchableOpacity style={styles.male}>
-                <Text style={styles.femaletext}> Male</Text>
-                </TouchableOpacity>
-                   
-                <TouchableOpacity style={styles.male}>
-                <Text style={styles.femaletext}> Female</Text>
-                </TouchableOpacity>
+                <View style={styles.passtext}>
+                    <TextInput
+                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
+                        placeholder="Enter your First Name"
+                        value={this.state.password}
+                        onChangeText={this.handlePass}
+                    />
                 </View>
 
-                <TextInput
-                    style={styles.passtext}
-                    placeholder="Password"
-                    value={this.state.password}
-                    onChangeText={this.handlePass}
-                />
+                <View style={styles.lastext}>
+                    <TextInput
+                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
+                        placeholder="Enter your Last Name"
+                        value={this.state.password}
+                        onChangeText={this.handlePass}
+                    />
+                </View>
+                <Text style={styles.genderText}>Gender</Text>
+                <View style={styles.gender}>
+                    <TouchableOpacity style={styles.male}>
+                        <Text style={styles.femaletext}> Male</Text>
+                    </TouchableOpacity>
 
-                <TextInput
-                    style={styles.passtext}
-                    placeholder="Confirm Password"
-                    value={this.state.password}
-                    onChangeText={this.handlePass}
-                />
+                    <TouchableOpacity style={styles.male}>
+                        <Text style={styles.femaletext}> Female</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.lastext}>
+                    <TextInput
+                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
+                        placeholder="PassWord"
+                        value={this.state.password}
+                        onChangeText={this.handlePass}
+                    />
+                </View>
+
+                <View style={styles.lastext}>
+                    <TextInput
+                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
+                        placeholder="Confirm PassWord"
+                        value={this.state.password}
+                        onChangeText={this.handlePass}
+                    />
+                </View>
 
 
-                <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('LoginWithEmail')}>
-                    <Text style={styles.signtext}>Login</Text>
+                <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('Home')}>
+                    <Text style={styles.signtext}>Submit</Text>
                 </TouchableOpacity>
-                <Text style={styles.simpletext}>Login with <Text style={styles.email}>Email</Text> </Text>
             </View>
 
         )
@@ -91,39 +92,42 @@ class Welcome extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        color: '#FFFFFF'
+        backgroundColor: '#FFFFFF'
     },
     text: {
         fontSize: 15,
         textAlign: 'center',
-        marginTop: '10%',
+        marginTop: '6%',
     },
     loginButton: {
         width: '90%',
-        height: moderateScale(40),
+        height: verticalScale(40),
         backgroundColor: '#24B775',
-        margin: verticalScale(18),
         borderRadius: 5,
         justifyContent: 'center',
-        textAlign: 'center'
+        textAlign: 'center',
+        margin: 18,
+        marginTop: 30
     },
     logintext: {
         color: 'black',
-        fontSize: 20,
-        fontWeight: 'bold',
+        fontSize: 24,
+        fontWeight: '700',
         marginTop: verticalScale(30),
-        marginLeft: '32%'
+        alignSelf: 'center',
+        marginLeft: '28%'
     },
     passtext: {
         fontSize: 15,
         width: '90%',
-        margin: moderateScale(15),
+        marginLeft: moderateScale(15),
+        marginRight: moderateScale(15),
         height: verticalScale(44),
         borderWidth: 1,
         alignSelf: 'center',
         borderRadius: 5,
         borderColor: '#D8D8D8',
-        marginTop: 30
+        marginTop: 40
     },
     lastext: {
         fontSize: 15,
@@ -135,7 +139,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         borderColor: '#D8D8D8',
         marginRight: moderateScale(15),
-        
+        marginTop: 20
     },
     simpletext: {
         alignSelf: 'center',
@@ -154,17 +158,40 @@ const styles = StyleSheet.create({
     },
     innerview: {
         flexDirection: 'row',
-        marginTop: verticalScale(20)
+        marginTop: verticalScale(20),
+        // justifyContent:'space-around'
     },
-    gender:{
-        flexDirection:'row',justifyContent:'space-evenly',marginTop:10,
+    gender: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        marginTop: 15,
     },
-    male:{
-        width:'42%',borderWidth:1,borderRadius:5,height:44,borderColor:'#D8D8D8'
+    male: {
+        width: '42%',
+        borderWidth: 1,
+        borderRadius: 5,
+        height: 44,
+        borderColor: '#D8D8D8'
     },
-    femaletext:{
-        alignSelf:'center',color:'#707070',margin:10
-    }
+    femaletext: {
+        alignSelf: 'center',
+        color: '#707070',
+        margin: 10
+    },
+    emailtextios: {
+        margin: 15
+    },
+    passtext1: {
+        marginLeft: moderateScale(8),
+    },
+    genderText: {
+        marginTop: 15, marginLeft: 20
+    },
+    signtext: {
+        alignSelf: 'center',
+        color: '#FFFFFF',
+        fontSize: 15
+    },
 });
 
 export default Welcome;

@@ -1,10 +1,5 @@
 import React from 'react';
-
-import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput } from 'react-native';
-// import { GoogleSignin, statusCodes } from 'react-native-google-signin';
-// import { GoogleSignin } from '@react-native-community/google-signin';
-// import { TextInput } from 'react-native-paper';
-import Styles from './Style';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput, StatusBar } from 'react-native';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
 class SignUp extends React.Component {
@@ -13,9 +8,6 @@ class SignUp extends React.Component {
         this.state = {
             email: '',
             password: '',
-            hidePass1: true,
-            mobNum: '',
-            confirmResult: null
         }
     }
 
@@ -30,6 +22,9 @@ class SignUp extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar
+                    hidden={true}
+                />
                 <View style={styles.innerview}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                         <Image source={require('../images/left-arrow.png')} style={styles.image} />
@@ -39,31 +34,31 @@ class SignUp extends React.Component {
                 </View>
                 <Text style={styles.text}>A verification code will be sent {'\n'} to your Email Id</Text>
                 <View style={styles.emailtext}>
-                <TextInput
-                    style={Platform.OS == "ios"?styles.emailtextios:styles.emailtext1}
-                    placeholder="Email ID"
-                    value={this.state.email}
-                    onChangeText={this.handleEmail}
-                />
+                    <TextInput
+                        style={Platform.OS == "ios" ? styles.emailtextios : styles.emailtext1}
+                        placeholder="Email ID"
+                        value={this.state.email}
+                        onChangeText={this.handleEmail}
+                    />
                 </View>
 
                 <View style={styles.passtext}>
-                <TextInput
-                    style={Platform.OS == "ios"?styles.emailtextios:styles.passtext1}
-                    placeholder="Enter verification code"
-                    value={this.state.password}
-                    onChangeText={this.handlePass}
-                />
-                <Text style={styles.counttext}>40 s</Text>
+                    <TextInput
+                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
+                        placeholder="Enter verification code"
+                        value={this.state.password}
+                        onChangeText={this.handlePass}
+                    />
+                    <Text style={styles.counttext}>40 s</Text>
                 </View>
                 <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('SignUpWithOtp')}>
                     <Text style={styles.signtext}>Sign Up</Text>
                 </TouchableOpacity>
                 <View style={styles.orlines}>
-                     <View style={styles.lines} /> 
-                     <Text style={styles.ortext}>OR</Text> 
-                     <View style={styles.lines1} /> 
-                     </View>
+                    <View style={styles.lines} />
+                    <Text style={styles.ortext}>OR</Text>
+                    <View style={styles.lines1} />
+                </View>
                 <View style={styles.social}>
                     <TouchableOpacity style={styles.google}>
                         <Text style={styles.googleText}>Google</Text>
@@ -73,11 +68,11 @@ class SignUp extends React.Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.bottom}>
-                <Text style={styles.bottomtext}>
-                By Signing up, you agree to Golfshot <Text style={styles.terms}>Terms </Text>{'\n'} <Text style={styles.service}>of Services </Text> and <Text style={styles.policy}>Privacy Policy </Text>
-                </Text>
+                    <Text style={styles.bottomtext}>
+                        By Signing up, you agree to Golfshot <Text style={styles.terms}>Terms </Text>{'\n'} <Text style={styles.service}>of Services </Text> and <Text style={styles.policy}>Privacy Policy </Text>
+                    </Text>
                 </View>
-                
+
             </View>
 
         )
@@ -88,6 +83,7 @@ class SignUp extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#FFFFFF'
     },
     text: {
         fontSize: 20,
@@ -153,7 +149,7 @@ const styles = StyleSheet.create({
     social: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop:moderateScale(15)
+        marginTop: moderateScale(15)
     },
     google: {
         borderWidth: 1,
@@ -162,7 +158,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         height: verticalScale(30),
         borderRadius: 5,
-        borderColor:'#CCCCCC',
+        borderColor: '#CCCCCC',
     },
     facebook: {
         borderWidth: 1,
@@ -172,12 +168,12 @@ const styles = StyleSheet.create({
         height: verticalScale(30),
         borderRadius: 5,
         backgroundColor: '#3B5999',
-        borderColor:'#CCCCCC'
+        borderColor: '#CCCCCC'
     },
     googleText: {
         alignSelf: 'center',
         margin: moderateScale(4),
-        color:'#666666'
+        color: '#666666'
     },
     facebookText: {
         alignSelf: 'center',
@@ -204,7 +200,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderRadius: 5,
         borderColor: '#D8D8D8',
-        flexDirection:'row'
+        flexDirection: 'row'
     },
     image: {
         marginTop: moderateScale(45),
@@ -216,54 +212,59 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: moderateScale(20)
     },
-    emailtext1:{
-        marginLeft:moderateScale(8),
-        // margin:15
+    emailtext1: {
+        marginLeft: moderateScale(8),
     },
-    passtext1:{
-        marginLeft:moderateScale(8),
-        // margin:15
+    passtext1: {
+        marginLeft: moderateScale(8),
     },
     orlines: {
         flexDirection: 'row',
         marginTop: moderateScale(15)
     },
     lines: {
-        backgroundColor: '#EDEDED', height: 1, flex: 1, alignSelf: 'center', marginLeft: 18
+        backgroundColor: '#EDEDED',
+        height: 1,
+        flex: 1,
+        alignSelf: 'center',
+        marginLeft: 18
     },
     lines1: {
-        backgroundColor: '#EDEDED', height: 1, flex: 1, alignSelf: 'center', marginRight: 18
+        backgroundColor: '#EDEDED',
+        height: 1,
+        flex: 1,
+        alignSelf: 'center',
+        marginRight: 18
     },
-    bottom:{
-        position:'absolute',
-        bottom:10,
-        width:'90%',
-        margin:15
+    bottom: {
+        position: 'absolute',
+        bottom: 10,
+        width: '90%',
+        margin: 15
     },
-    bottomtext:{
-        alignSelf:'center',
-        // width:'90%',       
+    bottomtext: {
+        alignSelf: 'center',
     },
-    terms:{
-        fontWeight:'bold',
-        textDecorationLine:'underline',
+    terms: {
+        fontWeight: 'bold',
+        textDecorationLine: 'underline',
     },
-    service:{
-        fontWeight:'bold',
-        textDecorationLine:'underline',
+    service: {
+        fontWeight: 'bold',
+        textDecorationLine: 'underline',
     },
-    policy:{
-        fontWeight:'bold',
-        textDecorationLine:'underline',
+    policy: {
+        fontWeight: 'bold',
+        textDecorationLine: 'underline',
     },
-    counttext:{
-        position:'absolute',
-        right:10,
-        alignSelf:'center',
-        color:'#24B775'
+    counttext: {
+        position: 'absolute',
+        right: 10,
+        alignSelf: 'center',
+        color: '#24B775'
     },
-    emailtextios:{
-        margin:15
+    emailtextios: {
+        margin: 15
     }
 });
 

@@ -1,10 +1,5 @@
 import React from 'react';
-
-import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput } from 'react-native';
-// import { GoogleSignin, statusCodes } from 'react-native-google-signin';
-// import { GoogleSignin } from '@react-native-community/google-signin';
-// import { TextInput } from 'react-native-paper';
-import Styles from './Style';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput, StatusBar } from 'react-native';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
 class LoginWithEmail extends React.Component {
@@ -13,9 +8,6 @@ class LoginWithEmail extends React.Component {
         this.state = {
             email: '',
             password: '',
-            hidePass1: true,
-            mobNum: '',
-            confirmResult: null
         }
     }
 
@@ -29,7 +21,10 @@ class LoginWithEmail extends React.Component {
 
     render() {
         return (
-            <View style={styles.Container}>
+            <View style={styles.container}>
+                <StatusBar
+                    hidden={true}
+                />
                 <View style={styles.innerview}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                         <Image source={require('../images/left-arrow.png')} style={styles.image} />
@@ -40,7 +35,7 @@ class LoginWithEmail extends React.Component {
                 <Text style={styles.text}>A verification code will be {'\n'} sent to your Email Id</Text>
                 <View style={styles.emailtext}>
                     <TextInput
-                        style={Platform.OS == "ios"?styles.emailtextios:styles.emailtext1}
+                        style={Platform.OS == "ios" ? styles.emailtextios : styles.emailtext1}
                         placeholder="Email ID"
                         value={this.state.email}
                         onChangeText={this.handleEmail}
@@ -49,15 +44,15 @@ class LoginWithEmail extends React.Component {
 
                 <View style={styles.passtext}>
                     <TextInput
-                        style={Platform.OS == "ios"?styles.emailtextios:styles.passtext1}
+                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
                         placeholder="Password"
                         value={this.state.password}
                         onChangeText={this.handlePass}
                     />
                 </View>
 
-                <Text style={Platform.OS == "ios"?styles.forgetPassios:styles.forgetPass}>Forgot Password ?</Text>
-                <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('Welcome')}>
+                <Text style={Platform.OS == "ios" ? styles.forgetPassios : styles.forgetPass}>Forgot Password ?</Text>
+                <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('Round')}>
                     <Text style={styles.signtext}>Login</Text>
                 </TouchableOpacity>
                 <Text style={styles.simpletext}>Login with <Text style={styles.email}>Mobile</Text> </Text>
@@ -85,8 +80,7 @@ class LoginWithEmail extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        backgroundColor: '#FFFFFF'
     },
     text: {
         fontSize: 20,
@@ -130,7 +124,7 @@ const styles = StyleSheet.create({
         marginTop: moderateScale(380),
         fontWeight: "bold"
     },
-    forgetPassios:{
+    forgetPassios: {
         position: 'absolute',
         right: moderateScale(20),
         marginTop: moderateScale(370),
@@ -208,24 +202,30 @@ const styles = StyleSheet.create({
     },
     emailtext1: {
         marginLeft: moderateScale(8),
-        // margin:15
     },
     passtext1: {
         marginLeft: moderateScale(8),
-        // margin:15
     },
     orlines: {
         flexDirection: 'row',
         marginTop: moderateScale(15)
     },
     lines: {
-        backgroundColor: '#EDEDED', height: 1, flex: 1, alignSelf: 'center', marginLeft: 18
+        backgroundColor: '#EDEDED',
+        height: 1,
+        flex: 1,
+        alignSelf: 'center',
+        marginLeft: 18
     },
     lines1: {
-        backgroundColor: '#EDEDED', height: 1, flex: 1, alignSelf: 'center', marginRight: 18
+        backgroundColor: '#EDEDED',
+        height: 1,
+        flex: 1,
+        alignSelf: 'center',
+        marginRight: 18
     },
-    emailtextios:{
-        margin:15
+    emailtextios: {
+        margin: 15
     }
 });
 
