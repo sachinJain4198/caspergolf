@@ -2,6 +2,12 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput, StatusBar } from 'react-native';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
+
+import { connect } from 'react-redux';
+import { changeEmail } from '../store/actions/basicActions';
+
+import { bindActionCreators } from 'redux';
+
 class LoginWithEmail extends React.Component {
     constructor(props) {
         super(props);
@@ -9,10 +15,15 @@ class LoginWithEmail extends React.Component {
             email: '',
             password: '',
         }
+
+        let { actions } = this.props;
+
+
     }
 
     handleEmail = (text) => {
         this.setState({ email: text })
+        this.props.setChangeEmail(text);
     }
 
     handlePass = (text) => {
@@ -32,7 +43,7 @@ class LoginWithEmail extends React.Component {
                     <Text style={styles.logintext}>Login
                     </Text>
                 </View>
-                <Text style={styles.text}>A verification code will be {'\n'} sent to your Email Id</Text>
+                <Text style={styles.text}>A verification code will be {'\n'} sent to your Email Id </Text>
                 <View style={styles.emailtext}>
                     <TextInput
                         style={Platform.OS == "ios" ? styles.emailtextios : styles.emailtext1}
@@ -229,5 +240,17 @@ const styles = StyleSheet.create({
     }
 });
 
-export default LoginWithEmail;
+
+const mapStateToProps = (state) => {
+    return {
+        email: state.basic.email
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setChangeEmail: (value) => dispatch(changeEmail(value)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginWithEmail)
 
