@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, StatusBar,} from 'react-native';
+import { View, Text, Image, StyleSheet, StatusBar, } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+
+import Logo from '../images/svg/logo.svg'
 
 class Login extends React.Component {
   render() {
@@ -10,8 +12,9 @@ class Login extends React.Component {
         <StatusBar
           hidden={true}
         />
-        <Image source={require('../images/login.jpeg')} style={styles.image} />
-
+        <View style={styles.image}>
+          <Logo />
+        </View>
         <Text style={styles.text}>Everything you need to {'\n'} play better golf</Text>
         <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('LoginContainer')}>
           <Text style={styles.logintext}>Login</Text>
@@ -72,8 +75,7 @@ const styles = StyleSheet.create({
     fontSize: 15
   },
   image: {
-    width: '60%', 
-    alignSelf: 'center', 
+    alignSelf: 'center',
     marginTop: moderateScale(50)
   }
 });
