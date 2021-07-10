@@ -32,7 +32,7 @@ export default class Courses extends React.Component {
                             <Text style={styles.playText}>Play</Text>
                         </View>
                     </View>
-                    <Image source={require('../images/golf.jpeg')} style={styles.golfImg} />
+                    <Image source={require('../images/golf-ball.jpeg')} style={styles.golfImg} />
                     <View style={styles.saveView}>
                         <Text style={styles.saveText}>Save more with premium</Text>
                         <Text style={styles.save}>Save up to 20 on tee times.</Text>
@@ -84,7 +84,7 @@ export default class Courses extends React.Component {
                             <Text style={styles.newText}>Tee Times {'\n'} Deals</Text>
                         </View>
                         <View style={styles.sameView}>
-                            <Image source={require('../images/calendar.png')} style={styles.newImg} resizeMode='contain' />
+                            <Image source={require('../images/calendars.png')} style={styles.newImg} resizeMode='contain' />
                             <Text style={styles.newText}>Tee Times {'\n'} Reservations</Text>
                         </View>
                         <View style={styles.sameView}>
