@@ -64,7 +64,7 @@ class Welcome extends React.Component {
                 <View style={styles.lastext}>
                     <TextInput
                         style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
-                        placeholder="PassWord"
+                        placeholder="Password"
                         value={this.state.password}
                         onChangeText={this.handlePass}
                     />
@@ -73,7 +73,7 @@ class Welcome extends React.Component {
                 <View style={styles.lastext}>
                     <TextInput
                         style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
-                        placeholder="Confirm PassWord"
+                        placeholder="Confirm Password"
                         value={this.state.password}
                         onChangeText={this.handlePass}
                     />
@@ -97,12 +97,12 @@ const styles = StyleSheet.create({
     },
     verificationText: {
         textAlign: 'center',
-        marginTop: '15%',
+        marginTop: '5%',
         color: "#3B3B3B",
         alignItems: "center",
         justifyContent: "center",
         fontFamily: "Poppins-Medium",
-        fontSize: 18,
+        fontSize: 14,
     },
     loginButton: {
         width: '90%',
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         textAlign: 'center',
         margin: 18,
-        marginTop: 30
+        marginTop: 40
     },
     logintext: {
         color: 'black',
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
         width: '90%',
         marginLeft: moderateScale(15),
         marginRight: moderateScale(15),
-        height: verticalScale(44),
+        height: verticalScale(40),
         borderWidth: 1,
         alignSelf: 'center',
         borderRadius: 5,
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         width: '90%',
         marginLeft: moderateScale(15),
-        height: verticalScale(44),
+        height: verticalScale(40),
         borderWidth: 1,
         alignSelf: 'center',
         borderRadius: 5,
@@ -184,16 +184,29 @@ const styles = StyleSheet.create({
     femaletext: {
         alignSelf: 'center',
         color: '#707070',
-        margin: 10
+        margin: 10,
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
     },
     emailtextios: {
-        margin: 15
+        margin: 15,
+        color: '#707070',
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
     },
     passtext1: {
         marginLeft: moderateScale(8),
+        color: '#707070',
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
+        flex: 1
     },
     genderText: {
-        marginTop: 15, marginLeft: 20
+        marginTop: 15,
+        marginLeft: 20,
+        color: "#707070",
+        fontFamily: "Poppins-Medium",
+        fontSize: 14,
     },
     signtext: {
         alignSelf: 'center',

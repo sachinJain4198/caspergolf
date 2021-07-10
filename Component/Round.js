@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         width: '90%',
         margin: moderateScale(15),
-        height: verticalScale(44),
+        height: verticalScale(40),
         borderWidth: 1,
         alignSelf: 'center',
         borderRadius: 5,

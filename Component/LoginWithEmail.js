@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     emailtext: {
         fontSize: 15,
         width: '90%',
-        height: verticalScale(44),
+        height: verticalScale(40),
         margin: moderateScale(15),
         borderWidth: 1,
         alignSelf: 'center',
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         width: '90%',
         margin: moderateScale(15),
-        height: verticalScale(44),
+        height: verticalScale(40),
         borderWidth: 1,
         alignSelf: 'center',
         borderRadius: 5,
@@ -192,10 +192,25 @@ const styles = StyleSheet.create({
     },
     emailtext1: {
         marginLeft: moderateScale(8),
+        color: '#707070',
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
+    },
+
+    emailtextios: {
+        margin: 15,
+        color: '#707070',
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
     },
     passtext1: {
         marginLeft: moderateScale(8),
+        color: '#707070',
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
+        flex: 1,
     },
+
     orlines: {
         flexDirection: 'row',
         marginTop: moderateScale(15)

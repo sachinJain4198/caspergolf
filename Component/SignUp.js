@@ -34,7 +34,7 @@ class SignUp extends React.Component {
                 </View>
 
 
-              
+
                 <Text style={styles.verificationText}>A verification code will be sent {'\n'} to your Email Id</Text>
                 <View style={styles.emailtext}>
                     <TextInput
@@ -66,7 +66,7 @@ class SignUp extends React.Component {
                     <SocialButton type="google" />
                     <SocialButton type="facebook" />
                 </View>
-                <View style={{ flex: 1, position: 'absolute', bottom: 10 }}>
+                <View style={{ flex: 1,  }}>
                     <Text style={styles.termsPolicyText}>By Signing up, you agree to Golfshot<Text style={{ fontFamily: "Poppins-Bold", textDecorationLine: 'underline' }}> Terms of Services </Text>and<Text style={{ fontFamily: "Poppins-Bold", textDecorationLine: 'underline' }}> Privacy Policy</Text></Text>
                 </View>
 
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Light",
         fontSize: 14,
         width: '90%',
-        height: verticalScale(44),
+        height: verticalScale(40),
         margin: moderateScale(15),
         borderWidth: 1,
         alignSelf: 'center',
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         width: '90%',
         margin: moderateScale(15),
-        height: verticalScale(44),
+        height: verticalScale(40),
         borderWidth: 1,
         alignSelf: 'center',
         borderRadius: 5,
@@ -195,10 +195,25 @@ const styles = StyleSheet.create({
     },
     emailtext1: {
         marginLeft: moderateScale(8),
+        color: '#707070',
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
+    },
+
+    emailtextios: {
+        margin: 15,
+        color: '#707070',
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
     },
     passtext1: {
         marginLeft: moderateScale(8),
+        color: '#707070',
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
+        flex: 1,
     },
+
     orlines: {
         flexDirection: 'row',
         marginTop: moderateScale(15)
