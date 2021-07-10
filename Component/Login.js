@@ -29,7 +29,7 @@ class Login extends React.Component {
 }
 
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ 
   container: {
     flex: 1,
     color: '#FFFFFF',
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   signButton: {
-    marginTop: moderateScale(10),
+    marginTop: moderateScale(8),
     width: '90%',
     height: verticalScale(40),
     backgroundColor: '#FFFFFF',

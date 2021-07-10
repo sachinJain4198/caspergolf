@@ -116,11 +116,11 @@ const styles = StyleSheet.create({
     },
     logintext: {
         color: 'black',
-        fontSize: 24,
-        fontWeight: '700',
         marginTop: verticalScale(30),
         alignSelf: 'center',
-        marginLeft: '28%'
+        marginLeft: '28%',
+        fontSize: 24,
+        fontFamily: "Poppins-SemiBold"
     },
     passtext: {
         fontSize: 15,
@@ -150,10 +150,13 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginTop: verticalScale(10),
         color: '#000000',
-        fontWeight: "bold"
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     email: {
-        color: '#24B775'
+        color: '#24B775',
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     image: {
         marginTop: verticalScale(35),
@@ -195,7 +198,8 @@ const styles = StyleSheet.create({
     signtext: {
         alignSelf: 'center',
         color: '#FFFFFF',
-        fontSize: 15
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
 });
 

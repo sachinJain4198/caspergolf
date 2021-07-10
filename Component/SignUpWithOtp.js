@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput, StatusBar } from 'react-native';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
+import SocialButton from './socialButton';
 import LeftArrow from '../images/svg/leftArrow.svg'
 class SignUpWithOtp extends React.Component {
     constructor(props) {
@@ -62,18 +63,12 @@ class SignUpWithOtp extends React.Component {
                     <Text style={styles.ortext}>OR</Text>
                     <View style={styles.lines1} />
                 </View>
-                <View style={styles.social}>
-                    <TouchableOpacity style={styles.google}>
-                        <Text style={styles.googleText}>Google</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.facebook}>
-                        <Text style={styles.facebookText}>Facebook</Text>
-                    </TouchableOpacity>
+                <View style={styles.socialIconContainer}>
+                    <SocialButton type="google" />
+                    <SocialButton type="facebook" />
                 </View>
-                <View style={styles.bottom}>
-                    <Text style={styles.bottomtext}>
-                        By Signing up, you agree to Golfshot <Text style={styles.terms}>Terms </Text>{'\n'} <Text style={styles.service}>of Services </Text> and <Text style={styles.policy}>Privacy Policy </Text>
-                    </Text>
+                <View style={{ flex: 1, position: 'absolute', bottom: 10 }}>
+                    <Text style={styles.termsPolicyText}>By Signing up, you agree to Golfshot<Text style={{ fontFamily: "Poppins-Bold", textDecorationLine: 'underline' }}> Terms of Services </Text>and<Text style={{ fontFamily: "Poppins-Bold", textDecorationLine: 'underline' }}> Privacy Policy</Text></Text>
                 </View>
 
             </View>
@@ -120,10 +115,10 @@ const styles = StyleSheet.create({
     logintext: {
         alignSelf: 'center',
         color: 'black',
-        fontSize: 20,
-        fontWeight: 'bold',
         marginTop: moderateScale(40),
-        marginLeft: '25%'
+        marginLeft: '25%',
+        fontSize: 24,
+        fontFamily: "Poppins-SemiBold"
     },
     phoneInput: {
         borderWidth: 1,
@@ -138,57 +133,32 @@ const styles = StyleSheet.create({
     signtext: {
         alignSelf: 'center',
         color: '#FFFFFF',
-        fontSize: 15
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     simpletext: {
         alignSelf: 'center',
-        marginTop: moderateScale(10)
+        marginTop: verticalScale(10),
+        color: '#000000',
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     email: {
-        color: '#24B775'
+        color: '#24B775',
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
-
     ortext: {
         alignSelf: 'center',
-        paddingHorizontal: 8, fontSize: 18,
-        color: '#999999'
+        paddingHorizontal: 8, 
+        color: "#999999",
+        fontFamily: "Poppins-Light",
+        fontSize: 14
     },
-    social: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: moderateScale(15)
-    },
-    google: {
-        borderWidth: 1,
-        width: '30%',
-        margin: moderateScale(10),
-        textAlign: 'center',
-        height: verticalScale(30),
-        borderRadius: 5,
-        borderColor: '#CCCCCC',
-    },
-    facebook: {
-        borderWidth: 1,
-        width: '30%',
-        margin: moderateScale(10),
-        textAlign: 'center',
-        height: verticalScale(30),
-        borderRadius: 5,
-        backgroundColor: '#3B5999',
-        borderColor: '#CCCCCC'
-    },
-    googleText: {
-        alignSelf: 'center',
-        margin: moderateScale(4),
-        color: '#666666'
-    },
-    facebookText: {
-        alignSelf: 'center',
-        margin: moderateScale(4),
-        color: '#FFFFFF'
-    },
+
     emailtext: {
-        fontSize: 15,
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
         width: '90%',
         height: verticalScale(44),
         margin: moderateScale(15),
@@ -196,10 +166,11 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderRadius: 5,
         borderColor: '#D8D8D8',
-        marginTop: moderateScale(50)
+        marginTop: moderateScale(50),
     },
     passtext: {
-        fontSize: 15,
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
         width: '90%',
         margin: moderateScale(15),
         height: verticalScale(44),
@@ -246,33 +217,33 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginRight: 18
     },
-    bottom: {
-        position: 'absolute',
-        bottom: 10,
-        width: '90%',
-        margin: 15
-    },
-    bottomtext: {
-        alignSelf: 'center',
-    },
-    terms: {
-        fontWeight: 'bold',
-        textDecorationLine: 'underline',
-    },
-    service: {
-        fontWeight: 'bold',
-        textDecorationLine: 'underline',
-    },
-    policy: {
-        fontWeight: 'bold',
-        textDecorationLine: 'underline',
+
+    termsPolicyText: {
+        flex: 1,
+        color: "#000000",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "Poppins-Regular",
+        fontSize: 12,
+        marginHorizontal: 60,
+        textAlign: "center",
+
     },
     counttext: {
         position: 'absolute',
         right: 10,
         alignSelf: 'center',
-        color: '#24B775'
-    }
+        color: '#24B775',
+        fontFamily: "Poppins-Medium",
+        fontSize: 14,
+    },
+    socialIconContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'space-around',
+        marginTop: 30,
+    },
 });
 
 export default SignUpWithOtp;

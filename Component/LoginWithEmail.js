@@ -5,7 +5,7 @@ import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
 import { connect } from 'react-redux';
 import { changeEmail } from '../store/actions/basicActions';
-
+import SocialButton from './socialButton';
 import LeftArrow from '../images/svg/leftArrow.svg'
 
 class LoginWithEmail extends React.Component {
@@ -38,7 +38,7 @@ class LoginWithEmail extends React.Component {
                 />
                 <View style={styles.innerview}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                    <View  style={styles.image}><LeftArrow /></View></TouchableOpacity>
+                        <View style={styles.image}><LeftArrow /></View></TouchableOpacity>
                     <Text style={styles.logintext}>Login</Text>
                 </View>
                 <Text style={styles.verificationText}>A verification code will be {'\n'} sent to your Email Id </Text>
@@ -70,15 +70,11 @@ class LoginWithEmail extends React.Component {
                     <Text style={styles.ortext}>OR</Text>
                     <View style={styles.lines1} />
                 </View>
-                <View style={styles.social}>
-                    <TouchableOpacity style={styles.google}>
-                        <Text style={styles.googleText}>Google</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.facebook}>
-                        <Text style={styles.facebookText}>Facebook</Text>
-                    </TouchableOpacity>
-                </View>
 
+                <View style={styles.socialIconContainer}>
+                    <SocialButton type="google" />
+                    <SocialButton type="facebook" />
+                </View>
             </View>
 
         )
@@ -113,74 +109,55 @@ const styles = StyleSheet.create({
     logintext: {
         alignSelf: 'center',
         color: 'black',
-        fontSize: 20,
-        fontWeight: 'bold',
         marginTop: moderateScale(40),
-        marginLeft: '35%'
+        marginLeft: '35%',
+        fontSize: 24,
+        fontFamily: "Poppins-SemiBold"
     },
     signtext: {
         alignSelf: 'center',
         color: '#FFFFFF',
-        fontSize: 15
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     simpletext: {
         alignSelf: 'center',
         marginTop: moderateScale(10),
-        fontWeight: "bold"
+        color: '#000000',
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     email: {
-        color: '#24B775'
+        color: '#24B775',
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     forgetPass: {
         position: 'absolute',
         right: moderateScale(20),
         marginTop: moderateScale(380),
-        fontWeight: "bold"
+        fontFamily: "Poppins-Medium",
+        fontSize: 14,
     },
     forgetPassios: {
         position: 'absolute',
         right: moderateScale(20),
         marginTop: moderateScale(370),
-        fontWeight: "bold"
+        fontFamily: "Poppins-Medium",
+        fontSize: 14,
     },
     ortext: {
         alignSelf: 'center',
-        color: '#999999',
-        paddingHorizontal: 8, fontSize: 18
+        paddingHorizontal: 8, color: "#999999",
+        fontFamily: "Poppins-Light",
+        fontSize: 14
     },
-    social: {
+    socialIconContainer: {
+        flex: 1,
         flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: moderateScale(10)
-    },
-    google: {
-        borderWidth: 1,
-        width: '30%',
-        margin: moderateScale(10),
-        textAlign: 'center',
-        height: verticalScale(30),
-        borderRadius: 5,
-        borderColor: '#CCCCCC',
-    },
-    facebook: {
-        borderWidth: 1,
-        width: '30%',
-        margin: moderateScale(10),
-        textAlign: 'center',
-        height: verticalScale(30),
-        borderRadius: 5,
-        backgroundColor: '#3B5999',
-        borderColor: '#CCCCCC'
-    },
-    googleText: {
-        alignSelf: 'center',
-        margin: moderateScale(4),
-        color: '#666666'
-    },
-    facebookText: {
-        alignSelf: 'center',
-        margin: moderateScale(4),
-        color: '#FFFFFF'
+        width: '100%',
+        justifyContent: 'space-around',
+        marginTop: 30,
     },
     emailtext: {
         fontSize: 15,

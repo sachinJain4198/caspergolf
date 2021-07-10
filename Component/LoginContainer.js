@@ -96,7 +96,6 @@ const styles = StyleSheet.create({
         marginTop: verticalScale(30),
         marginLeft: '32%',
         fontSize: 24,
-        width: '80%',
         fontFamily: "Poppins-SemiBold"
     },
     phoneInput: {
@@ -112,17 +111,21 @@ const styles = StyleSheet.create({
     },
     signtext: {
         alignSelf: 'center',
-        color: '#FFFFFF',
-        fontSize: 15
+        color: 'white',
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     simpletext: {
         alignSelf: 'center',
         marginTop: verticalScale(10),
         color: '#000000',
-        fontWeight: "bold"
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     email: {
-        color: '#24B775'
+        color: '#24B775',
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     image: {
         marginTop: verticalScale(35),

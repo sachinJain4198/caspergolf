@@ -69,7 +69,7 @@ class Round extends React.Component {
                 />
                 <View style={styles.innerview}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                    <View  style={styles.image}><LeftArrow /></View>     </TouchableOpacity>
+                    <View  style={styles.image}><LeftArrow /></View></TouchableOpacity>
                     <Text style={styles.logintext}>Enter a Past Round</Text>
                 </View>
                 <Text style={styles.commonText}>Course</Text>
@@ -192,11 +192,15 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginTop: verticalScale(10),
         color: '#000000',
-        fontWeight: "bold"
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     email: {
-        color: '#24B775'
+        color: '#24B775',
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
+    
     image: {
         marginTop: verticalScale(35),
         width: scale(20),
@@ -227,7 +231,8 @@ const styles = StyleSheet.create({
     signtext: {
         alignSelf: 'center',
         color: 'white',
-
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     commonText: {
         marginLeft: 20,
