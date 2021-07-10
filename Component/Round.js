@@ -6,6 +6,7 @@ import ModalDropdown from 'react-native-modal-dropdown';
 import { DatePickerDialog } from 'react-native-datepicker-dialog';
 import moment from 'moment';
 
+import LeftArrow from '../images/svg/leftArrow.svg'
 class Round extends React.Component {
     constructor(props) {
         super(props);
@@ -68,8 +69,7 @@ class Round extends React.Component {
                 />
                 <View style={styles.innerview}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                        <Image source={require('../images/left-arrow.png')} style={styles.image} />
-                    </TouchableOpacity>
+                    <View  style={styles.image}><LeftArrow /></View>     </TouchableOpacity>
                     <Text style={styles.logintext}>Enter a Past Round</Text>
                 </View>
                 <Text style={styles.commonText}>Course</Text>

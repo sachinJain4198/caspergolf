@@ -4,6 +4,8 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, StatusBar, TextInput }
 import PhoneInput from "react-native-phone-number-input";
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
+import LeftArrow from '../images/svg/leftArrow.svg'
+
 
 class LoginContainer extends React.Component {
     constructor(props) {
@@ -29,13 +31,12 @@ class LoginContainer extends React.Component {
                     hidden={true}
                 />
                 <View style={styles.innerview}>
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                        <Image source={require('../images/left-arrow.png')} style={styles.image} />
+                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}><View style={styles.image}><LeftArrow /></View>
                     </TouchableOpacity>
                     <Text style={styles.logintext}>Login</Text>
                 </View>
 
-                <Text style={styles.text}>A verification code will be sent {'\n'} to your phone via SMS</Text>
+                <Text style={styles.verificationText}>A verification code will be sent {'\n'} to your phone via SMS</Text>
                 <PhoneInput
                     ref={this.state.phoneInput}
                     defaultValue={this.state.value}
@@ -71,10 +72,14 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         backgroundColor: '#FFFFFF'
     },
-    text: {
-        fontSize: 20,
+    verificationText: {
         textAlign: 'center',
-        marginTop: '20%',
+        marginTop: '15%',
+        color: "#3B3B3B",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "Poppins-Medium",
+        fontSize: 18,
     },
     loginButton: {
         width: '90%',
@@ -88,10 +93,11 @@ const styles = StyleSheet.create({
     },
     logintext: {
         color: 'black',
-        fontSize: 20,
-        fontWeight: 'bold',
         marginTop: verticalScale(30),
-        marginLeft: '32%'
+        marginLeft: '32%',
+        fontSize: 24,
+        width: '80%',
+        fontFamily: "Poppins-SemiBold"
     },
     phoneInput: {
         borderWidth: 1,

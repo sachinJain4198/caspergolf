@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput, StatusBar } from 'react-native';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
+import LeftArrow from '../images/svg/leftArrow.svg'
 class SignUpWithOtp extends React.Component {
     constructor(props) {
         super(props);
@@ -28,16 +29,13 @@ class SignUpWithOtp extends React.Component {
             <View style={styles.container}>
                 <StatusBar
                     hidden={true}
-
                 />
                 <View style={styles.innerview}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                        <Image source={require('../images/left-arrow.png')} style={styles.image} />
-                    </TouchableOpacity>
-                    <Text style={styles.logintext}>Create Account
-                    </Text>
+                        <View style={styles.image}><LeftArrow /></View></TouchableOpacity>
+                    <Text style={styles.logintext}>Create Account</Text>
                 </View>
-                <Text style={styles.text}>A verification code will be sent {'\n'} to your phone via SMS</Text>
+                <Text style={styles.verificationText}>A verification code will be sent {'\n'} to your phone via SMS</Text>
                 <View style={styles.emailtext}>
                     <TextInput
                         style={Platform.OS == "ios" ? styles.emailtextios : styles.emailtext1}
@@ -90,10 +88,14 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#FFFFFF'
     },
-    text: {
-        fontSize: 20,
+    verificationText: {
         textAlign: 'center',
         marginTop: '15%',
+        color: "#3B3B3B",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "Poppins-Medium",
+        fontSize: 18,
     },
     loginButton: {
         marginTop: moderateScale(35),

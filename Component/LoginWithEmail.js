@@ -6,7 +6,7 @@ import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import { connect } from 'react-redux';
 import { changeEmail } from '../store/actions/basicActions';
 
-import { bindActionCreators } from 'redux';
+import LeftArrow from '../images/svg/leftArrow.svg'
 
 class LoginWithEmail extends React.Component {
     constructor(props) {
@@ -38,12 +38,10 @@ class LoginWithEmail extends React.Component {
                 />
                 <View style={styles.innerview}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                        <Image source={require('../images/left-arrow.png')} style={styles.image} />
-                    </TouchableOpacity>
-                    <Text style={styles.logintext}>Login
-                    </Text>
+                    <View  style={styles.image}><LeftArrow /></View></TouchableOpacity>
+                    <Text style={styles.logintext}>Login</Text>
                 </View>
-                <Text style={styles.text}>A verification code will be {'\n'} sent to your Email Id </Text>
+                <Text style={styles.verificationText}>A verification code will be {'\n'} sent to your Email Id </Text>
                 <View style={styles.emailtext}>
                     <TextInput
                         style={Platform.OS == "ios" ? styles.emailtextios : styles.emailtext1}
@@ -93,10 +91,14 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#FFFFFF'
     },
-    text: {
-        fontSize: 20,
+    verificationText: {
         textAlign: 'center',
         marginTop: '15%',
+        color: "#3B3B3B",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "Poppins-Medium",
+        fontSize: 18,
     },
     loginButton: {
         marginTop: moderateScale(40),

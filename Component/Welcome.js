@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput, S
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
 
+import LeftArrow from '../images/svg/leftArrow.svg'
 class Welcome extends React.Component {
     constructor(props) {
         super(props);
@@ -25,12 +26,12 @@ class Welcome extends React.Component {
                 />
                 <View style={styles.innerview}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                        <Image source={require('../images/left-arrow.png')} style={styles.image} />
+                        <View style={styles.image}><LeftArrow /></View>
                     </TouchableOpacity>
                     <Text style={styles.logintext}>Welcome</Text>
                 </View>
 
-                <Text style={styles.text}>Before proceeding we require some {'\n'}important imformation</Text>
+                <Text style={styles.verificationText}>Before proceeding we require some {'\n'}important imformation</Text>
 
                 <View style={styles.passtext}>
                     <TextInput
@@ -94,10 +95,14 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#FFFFFF'
     },
-    text: {
-        fontSize: 15,
+    verificationText: {
         textAlign: 'center',
-        marginTop: '6%',
+        marginTop: '15%',
+        color: "#3B3B3B",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "Poppins-Medium",
+        fontSize: 18,
     },
     loginButton: {
         width: '90%',

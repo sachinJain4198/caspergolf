@@ -15,7 +15,7 @@ class Login extends React.Component {
         <View style={styles.image}>
           <Logo />
         </View>
-        <Text style={styles.text}>Everything you need to {'\n'} play better golf</Text>
+        <Text style={styles.everythingText}>Everything you need to {'\n'} play better golf</Text>
         <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('LoginContainer')}>
           <Text style={styles.logintext}>Login</Text>
         </TouchableOpacity>
@@ -35,12 +35,12 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     backgroundColor: '#FFFFFF'
   },
-  text: {
+  everythingText: {
     fontSize: 20,
     textAlign: 'center',
     marginTop: '10%',
-    fontWeight: "500",
-    color: '#000000'
+    color: '#000000',
+    fontFamily: "Poppins-Medium",
   },
   loginButton: {
     marginTop: moderateScale(30),
@@ -67,12 +67,14 @@ const styles = StyleSheet.create({
   logintext: {
     alignSelf: 'center',
     color: 'white',
-    fontSize: 15
+    fontSize: 14,
+    fontFamily: "Poppins-Medium",
   },
   signtext: {
     alignSelf: 'center',
     color: '#707070',
-    fontSize: 15
+    fontSize: 14,
+    fontFamily: "Poppins-Medium",
   },
   image: {
     alignSelf: 'center',
