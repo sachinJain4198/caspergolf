@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     },
     verificationText: {
         textAlign: 'center',
-        marginTop: '15%',
+        marginTop: '13%',
         color: "#3B3B3B",
         alignItems: "center",
         justifyContent: "center",
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     },
     containerStyle: {
         width: '90%',
-        height: 50,
+        height: 44,
         alignSelf: 'center',
         marginTop: 70,
         borderColor: '#D8D8D8',

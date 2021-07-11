@@ -29,7 +29,7 @@ class Login extends React.Component {
 }
 
 
-const styles = StyleSheet.create({ 
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     color: '#FFFFFF',
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   everythingText: {
     fontSize: 20,
     textAlign: 'center',
-    marginTop: '10%',
+    marginTop: '6%',
     color: '#000000',
     fontFamily: "Poppins-Medium",
   },
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   image: {
     alignSelf: 'center',
-    marginTop: moderateScale(50)
+    marginTop: moderateScale(60)
   }
 });
 
