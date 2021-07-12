@@ -52,7 +52,8 @@ class LoginContainer extends React.Component {
                     containerStyle={styles.containerStyle}
                     textContainerStyle={styles.textContainerStyle}
                     codeTextStyle={styles.codeTextStyle}
-                    textInputStyle={styles.textInputStyle}
+                    textInputStyle={this.state.value.length ? { ...styles.textInputStyle } : { ...styles.textInputStyle, ...styles.placeholderStyle }}
+
                 />
 
                 <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('LoginWithEmail')}>
@@ -83,13 +84,13 @@ const styles = StyleSheet.create({
     },
     loginButton: {
         width: '90%',
-        height: moderateScale(40),
+        height: 44,
         backgroundColor: '#24B775',
         margin: verticalScale(18),
         borderRadius: 5,
         justifyContent: 'center',
         textAlign: 'center',
-        marginTop: 40
+        marginTop: 35
     },
     logintext: {
         color: 'black',
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
     },
     simpletext: {
         alignSelf: 'center',
-        marginTop: verticalScale(10),
+        marginTop: 3,
         color: '#000000',
         fontSize: 14,
         fontFamily: "Poppins-Medium",
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
         width: '90%',
         height: 44,
         alignSelf: 'center',
-        marginTop: 70,
+        marginTop: 65,
         borderColor: '#D8D8D8',
         borderWidth: 1,
         borderRadius: 5
@@ -154,13 +155,19 @@ const styles = StyleSheet.create({
     codeTextStyle: {
         height: 40,
         alignSelf: 'center',
-        marginTop: 20
+        marginTop: 20,
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
     },
     textInputStyle: {
         height: 80,
-        marginTop: 2
+        marginTop: 2,
+        fontSize: 14,
+        fontFamily: "Poppins-Medium",
+    },
+    placeholderStyle: {
+        fontFamily: "Poppins-Light",
     }
 });
 
 export default LoginContainer;
-

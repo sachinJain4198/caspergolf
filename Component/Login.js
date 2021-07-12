@@ -38,14 +38,14 @@ const styles = StyleSheet.create({
   everythingText: {
     fontSize: 20,
     textAlign: 'center',
-    marginTop: '6%',
+    marginTop: '5%',
     color: '#000000',
     fontFamily: "Poppins-Medium",
   },
   loginButton: {
-    marginTop: moderateScale(30),
+    marginTop: moderateScale(20),
     width: '90%',
-    height: verticalScale(40),
+    height: 44,
     backgroundColor: '#24B775',
     margin: moderateScale(18),
     borderRadius: 5,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   signButton: {
     marginTop: moderateScale(8),
     width: '90%',
-    height: verticalScale(40),
+    height: 44,
     backgroundColor: '#FFFFFF',
     margin: moderateScale(18),
     borderRadius: 5,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   image: {
     alignSelf: 'center',
-    marginTop: moderateScale(60)
+    marginTop: moderateScale(65)
   }
 });
 

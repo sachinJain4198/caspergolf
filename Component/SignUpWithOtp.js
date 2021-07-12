@@ -36,25 +36,46 @@ class SignUpWithOtp extends React.Component {
                         <View style={styles.image}><LeftArrow /></View></TouchableOpacity>
                     <Text style={styles.logintext}>Create Account</Text>
                 </View>
-                <Text style={styles.verificationText}>A verification code will be sent {'\n'} to your phone via SMS</Text>
-                <View style={styles.emailtext}>
-                    <TextInput
-                        style={Platform.OS == "ios" ? styles.emailtextios : styles.emailtext1}
-                        placeholder="Enter your Mobile number"
-                        value={this.state.email}
-                        onChangeText={this.handleEmail}
-                    />
-                </View>
 
-                <View style={styles.passtext}>
+
+
+                <Text style={styles.verificationText}>A verification code will be sent {'\n'} to your phone via SMS</Text>
+                <View style={styles.inputView}>
                     <TextInput
-                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
+                        style={styles.textInput}
+                        placeholder="Enter your Mobile number"
+                        placeholderTextColor="707070"
+                    // onChangeText={email =>
+                    //     setFormValues(prevState => ({
+                    //         ...prevState,
+                    //         email: email.trim(),
+                    //         incorrectEmail: false,
+                    //     }))}
+
+                    // KeyboardType="email-address"
+                    // // assignRef={component => {
+                    // //     emailInputRef.current = component;
+                    // // }}
+                    // onBlur={() => { email.length > 0 && checkField('email', 'incorrectEmail', isEmailValid) }}
+                    />
+
+                </View>
+                <View style={{ ...styles.inputView, position: "relative" }}>
+                    <TextInput
+                        style={styles.textInput}
                         placeholder="Enter verification code"
-                        value={this.state.password}
-                        onChangeText={this.handlePass}
+                        placeholderTextColor="707070"
+                    // onChangeText={password =>
+                    //     setFormValues(prevState => ({
+                    //         ...prevState,
+                    //         password: password.trim(),
+                    //         incorrectPassword: false,
+                    //     }))
+                    // }
                     />
                     <Text style={styles.counttext}>40 s</Text>
                 </View>
+
                 <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('Welcome')}>
                     <Text style={styles.signtext}>Sign Up</Text>
                 </TouchableOpacity>
@@ -67,11 +88,13 @@ class SignUpWithOtp extends React.Component {
                     <SocialButton type="google" />
                     <SocialButton type="facebook" />
                 </View>
-                <View style={{ flex: 1 }}>
-                    <Text style={styles.termsPolicyText}>By Signing up, you agree to Golfshot<Text style={{ fontFamily: "Poppins-Bold", textDecorationLine: 'underline' }}> Terms of Services </Text>and<Text style={{ fontFamily: "Poppins-Bold", textDecorationLine: 'underline' }}> Privacy Policy</Text></Text>
+                <View style={{ flex: 1, }}>
+                    <Text style={styles.termsPolicyText}>By Signing up, you agree to Golfshot<Text style={{ fontFamily: "Poppins-Bold", textDecorationLine: 'underline' }}> Terms {'\n'}  of Services</Text> and <Text style={{ fontFamily: "Poppins-Bold", textDecorationLine: 'underline' }}> Privacy Policy</Text></Text>
                 </View>
 
             </View>
+
+
 
         )
     }
@@ -85,30 +108,21 @@ const styles = StyleSheet.create({
     },
     verificationText: {
         textAlign: 'center',
-        marginTop: '15%',
+        marginTop: '11%',
         color: "#3B3B3B",
         alignItems: "center",
         justifyContent: "center",
         fontFamily: "Poppins-Medium",
         fontSize: 18,
+        marginBottom: moderateScale(45),
     },
     loginButton: {
-        marginTop: moderateScale(35),
+        marginTop: "6%",
         width: '90%',
-        height: verticalScale(40),
+        height: 44,
         backgroundColor: '#24B775',
         margin: moderateScale(18),
         borderRadius: 5,
-        justifyContent: 'center',
-        textAlign: 'center'
-    },
-    signButton: {
-        marginTop: moderateScale(10),
-        width: '95%',
-        height: verticalScale(40),
-        backgroundColor: '#FFFFFF',
-        margin: moderateScale(10),
-        borderRadius: 18,
         justifyContent: 'center',
         textAlign: 'center'
     },
@@ -116,35 +130,13 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         color: 'black',
         marginTop: moderateScale(40),
-        marginLeft: '25%',
+        marginLeft: '18%',
         fontSize: 24,
         fontFamily: "Poppins-SemiBold"
-    },
-    phoneInput: {
-        borderWidth: 1,
-        marginTop: moderateScale(80),
-        width: '95%',
-        height: verticalScale(40),
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: moderateScale(10),
-        borderColor: '#D8D8D8'
     },
     signtext: {
         alignSelf: 'center',
         color: '#FFFFFF',
-        fontSize: 14,
-        fontFamily: "Poppins-Medium",
-    },
-    simpletext: {
-        alignSelf: 'center',
-        marginTop: verticalScale(10),
-        color: '#000000',
-        fontSize: 14,
-        fontFamily: "Poppins-Medium",
-    },
-    email: {
-        color: '#24B775',
         fontSize: 14,
         fontFamily: "Poppins-Medium",
     },
@@ -155,30 +147,10 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Light",
         fontSize: 14
     },
-
-    emailtext: {
-        fontFamily: "Poppins-Light",
-        fontSize: 14,
-        width: '90%',
-        height: verticalScale(40),
-        margin: moderateScale(15),
-        borderWidth: 1,
-        alignSelf: 'center',
-        borderRadius: 5,
-        borderColor: '#D8D8D8',
-        marginTop: moderateScale(50),
-    },
-    passtext: {
-        fontFamily: "Poppins-Light",
-        fontSize: 14,
-        width: '90%',
-        margin: moderateScale(15),
-        height: verticalScale(40),
-        borderWidth: 1,
-        alignSelf: 'center',
-        borderRadius: 5,
-        borderColor: '#D8D8D8',
-        flexDirection: 'row'
+    social: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: moderateScale(15)
     },
     image: {
         marginTop: moderateScale(45),
@@ -189,27 +161,6 @@ const styles = StyleSheet.create({
     innerview: {
         flexDirection: 'row',
         marginTop: moderateScale(20)
-    },
-    emailtext1: {
-        marginLeft: moderateScale(8),
-        color: '#707070',
-        fontFamily: "Poppins-Light",
-        fontSize: 14,
-    },
-
-    emailtextios: {
-        margin: 15,
-        color: '#707070',
-        fontFamily: "Poppins-Light",
-        fontSize: 14,
-    },
-    passtext1: {
-        marginLeft: moderateScale(8),
-        color: '#707070',
-        fontFamily: "Poppins-Light",
-        fontSize: 14,
-        flex:1
-
     },
 
     orlines: {
@@ -238,17 +189,14 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         fontFamily: "Poppins-Regular",
         fontSize: 12,
-        marginHorizontal: 60,
         textAlign: "center",
-
     },
     counttext: {
         position: 'absolute',
-        right: 10,
-        alignSelf: 'center',
         color: '#24B775',
         fontFamily: "Poppins-Medium",
         fontSize: 14,
+        right: 10,
     },
     socialIconContainer: {
         flex: 1,
@@ -256,6 +204,27 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'space-around',
         marginTop: 30,
+    },
+    inputView: {
+        backgroundColor: "#FFFFFF",
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: "#D8D8D8",
+        width: "90%",
+        height: 44,
+        marginVertical: 10,
+        marginHorizontal: "5%",
+        justifyContent: "center",
+        alignContent: "center",
+    },
+    textInput: {
+        height: '100%',
+        flex: 1,
+        width: '100%',
+        padding: 10,
+        marginRight: "auto",
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
     },
 });
 

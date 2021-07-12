@@ -33,22 +33,46 @@ class Welcome extends React.Component {
 
                 <Text style={styles.verificationText}>Before proceeding we require some {'\n'}important imformation</Text>
 
-                <View style={styles.passtext}>
-                    <TextInput
-                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
-                        placeholder="Enter your First Name"
-                        value={this.state.password}
-                        onChangeText={this.handlePass}
-                    />
-                </View>
 
-                <View style={styles.lastext}>
+                <View style={styles.inputView}>
                     <TextInput
-                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
-                        placeholder="Enter your Last Name"
-                        value={this.state.password}
-                        onChangeText={this.handlePass}
+                        style={styles.textInput}
+                        placeholder="Enter your First Name"
+                        placeholderTextColor="707070"
+                    // onChangeText={email =>
+                    //     setFormValues(prevState => ({
+                    //         ...prevState,
+                    //         email: email.trim(),
+                    //         incorrectEmail: false,
+                    //     }))}
+
+                    // KeyboardType="email-address"
+                    // // assignRef={component => {
+                    // //     emailInputRef.current = component;
+                    // // }}
+                    // onBlur={() => { email.length > 0 && checkField('email', 'incorrectEmail', isEmailValid) }}
                     />
+
+                </View>
+                <View style={styles.inputView}>
+                    <TextInput
+                        style={styles.textInput}
+                        placeholder="Enter your Last Name"
+                        placeholderTextColor="707070"
+                    // onChangeText={email =>
+                    //     setFormValues(prevState => ({
+                    //         ...prevState,
+                    //         email: email.trim(),
+                    //         incorrectEmail: false,
+                    //     }))}
+
+                    // KeyboardType="email-address"
+                    // // assignRef={component => {
+                    // //     emailInputRef.current = component;
+                    // // }}
+                    // onBlur={() => { email.length > 0 && checkField('email', 'incorrectEmail', isEmailValid) }}
+                    />
+
                 </View>
                 <Text style={styles.genderText}>Gender</Text>
                 <View style={styles.gender}>
@@ -61,24 +85,47 @@ class Welcome extends React.Component {
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.lastext}>
+                <View style={styles.inputView}>
                     <TextInput
-                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
+                        style={styles.textInput}
                         placeholder="Password"
-                        value={this.state.password}
-                        onChangeText={this.handlePass}
+                        placeholderTextColor="707070"
+                    // onChangeText={email =>
+                    //     setFormValues(prevState => ({
+                    //         ...prevState,
+                    //         email: email.trim(),
+                    //         incorrectEmail: false,
+                    //     }))}
+
+                    // KeyboardType="email-address"
+                    // // assignRef={component => {
+                    // //     emailInputRef.current = component;
+                    // // }}
+                    // onBlur={() => { email.length > 0 && checkField('email', 'incorrectEmail', isEmailValid) }}
                     />
+
                 </View>
 
-                <View style={styles.lastext}>
+                <View style={styles.inputView}>
                     <TextInput
-                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
+                        style={styles.textInput}
                         placeholder="Confirm Password"
-                        value={this.state.password}
-                        onChangeText={this.handlePass}
-                    />
-                </View>
+                        placeholderTextColor="707070"
+                    // onChangeText={email =>
+                    //     setFormValues(prevState => ({
+                    //         ...prevState,
+                    //         email: email.trim(),
+                    //         incorrectEmail: false,
+                    //     }))}
 
+                    // KeyboardType="email-address"
+                    // // assignRef={component => {
+                    // //     emailInputRef.current = component;
+                    // // }}
+                    // onBlur={() => { email.length > 0 && checkField('email', 'incorrectEmail', isEmailValid) }}
+                    />
+
+                </View>
 
                 <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('Home')}>
                     <Text style={styles.signtext}>Submit</Text>
@@ -103,16 +150,17 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         fontFamily: "Poppins-Medium",
         fontSize: 14,
+        marginBottom: 15,
     },
     loginButton: {
         width: '90%',
-        height: verticalScale(40),
+        height: 44,
         backgroundColor: '#24B775',
         borderRadius: 5,
         justifyContent: 'center',
         textAlign: 'center',
         margin: 18,
-        marginTop: 40
+        marginTop: 20
     },
     logintext: {
         color: 'black',
@@ -172,7 +220,8 @@ const styles = StyleSheet.create({
     gender: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        marginTop: 15,
+        marginTop: 5,
+        marginBottom: 5,
     },
     male: {
         width: '42%',
@@ -202,7 +251,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     genderText: {
-        marginTop: 15,
+        marginTop: 5,
         marginLeft: 20,
         color: "#707070",
         fontFamily: "Poppins-Medium",
@@ -213,6 +262,27 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontSize: 14,
         fontFamily: "Poppins-Medium",
+    },
+    inputView: {
+        backgroundColor: "#FFFFFF",
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: "#D8D8D8",
+        width: "90%",
+        height: 44,
+        marginVertical: 10,
+        marginHorizontal: "5%",
+        justifyContent: "center",
+        alignContent: "center",
+    },
+    textInput: {
+        height: '100%',
+        flex: 1,
+        width: '100%',
+        padding: 10,
+        marginRight: "auto",
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
     },
 });
 
