@@ -42,25 +42,49 @@ class LoginWithEmail extends React.Component {
                     <Text style={styles.logintext}>Login</Text>
                 </View>
                 <Text style={styles.verificationText}>A verification code will be {'\n'} sent to your Email Id </Text>
-                <View style={styles.emailtext}>
+                <View style={styles.inputView}>
                     <TextInput
-                        style={Platform.OS == "ios" ? styles.emailtextios : styles.emailtext1}
+                        style={styles.textInput}
                         placeholder="Email ID"
-                        value={this.state.email}
-                        onChangeText={this.handleEmail}
+                        placeholderTextColor="707070"
+                    // onChangeText={email =>
+                    //     setFormValues(prevState => ({
+                    //         ...prevState,
+                    //         email: email.trim(),
+                    //         incorrectEmail: false,
+                    //     }))}
+
+                    // KeyboardType="email-address"
+                    // // assignRef={component => {
+                    // //     emailInputRef.current = component;
+                    // // }}
+                    // onBlur={() => { email.length > 0 && checkField('email', 'incorrectEmail', isEmailValid) }}
                     />
                 </View>
 
-                <View style={styles.passtext}>
+                <View style={styles.inputView}>
                     <TextInput
-                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
+                        style={styles.textInput}
                         placeholder="Password"
-                        value={this.state.password}
-                        onChangeText={this.handlePass}
+                        textContentType="password"
+                        secureTextEntry={true}
+                        placeholderTextColor="707070"
+                    // onChangeText={password =>
+                    //     setFormValues(prevState => ({
+                    //         ...prevState,
+                    //         password: password.trim(),
+                    //         incorrectPassword: false,
+                    //     }))
+                    // }
+
+
                     />
                 </View>
-
-                <Text style={Platform.OS == "ios" ? styles.forgetPassios : styles.forgetPass}>Forgot Password ?</Text>
+                <View style={styles.forgotButtonContainer}>
+                    <TouchableOpacity>
+                        <Text style={styles.forgotButton}>Forgot Password?</Text>
+                    </TouchableOpacity>
+                </View>
                 <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('Round')}>
                     <Text style={styles.signtext}>Login</Text>
                 </TouchableOpacity>
@@ -83,23 +107,25 @@ class LoginWithEmail extends React.Component {
 
 
 const styles = StyleSheet.create({
+
     container: {
         flex: 1,
         backgroundColor: '#FFFFFF'
     },
     verificationText: {
         textAlign: 'center',
-        marginTop: '15%',
+        marginTop: '13%',
         color: "#3B3B3B",
         alignItems: "center",
         justifyContent: "center",
         fontFamily: "Poppins-Medium",
         fontSize: 18,
+        marginBottom: "12%"
     },
     loginButton: {
-        marginTop: moderateScale(40),
+        marginTop: moderateScale(30),
         width: '90%',
-        height: verticalScale(40),
+        height: 44,
         backgroundColor: '#24B775',
         margin: moderateScale(18),
         borderRadius: 5,
@@ -110,7 +136,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         color: 'black',
         marginTop: moderateScale(40),
-        marginLeft: '35%',
+        marginLeft: '32%',
         fontSize: 24,
         fontFamily: "Poppins-SemiBold"
     },
@@ -122,7 +148,8 @@ const styles = StyleSheet.create({
     },
     simpletext: {
         alignSelf: 'center',
-        marginTop: moderateScale(10),
+        marginTop: 3,
+        marginBottom: moderateScale(15),
         color: '#000000',
         fontSize: 14,
         fontFamily: "Poppins-Medium",
@@ -131,20 +158,6 @@ const styles = StyleSheet.create({
         color: '#24B775',
         fontSize: 14,
         fontFamily: "Poppins-Medium",
-    },
-    forgetPass: {
-        position: 'absolute',
-        right: moderateScale(20),
-        marginTop: moderateScale(380),
-        fontFamily: "Poppins-Medium",
-        fontSize: 14,
-    },
-    forgetPassios: {
-        position: 'absolute',
-        right: moderateScale(20),
-        marginTop: moderateScale(370),
-        fontFamily: "Poppins-Medium",
-        fontSize: 14,
     },
     ortext: {
         alignSelf: 'center',
@@ -159,27 +172,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         marginTop: 30,
     },
-    emailtext: {
-        fontSize: 15,
-        width: '90%',
-        height: verticalScale(40),
-        margin: moderateScale(15),
-        borderWidth: 1,
-        alignSelf: 'center',
-        borderRadius: 5,
-        borderColor: '#D8D8D8',
-        marginTop: moderateScale(50)
-    },
-    passtext: {
-        fontSize: 15,
-        width: '90%',
-        margin: moderateScale(15),
-        height: verticalScale(40),
-        borderWidth: 1,
-        alignSelf: 'center',
-        borderRadius: 5,
-        borderColor: '#D8D8D8',
-    },
     image: {
         marginTop: verticalScale(45),
         width: scale(20),
@@ -190,27 +182,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: moderateScale(20)
     },
-    emailtext1: {
-        marginLeft: moderateScale(8),
-        color: '#707070',
-        fontFamily: "Poppins-Light",
-        fontSize: 14,
-    },
-
-    emailtextios: {
-        margin: 15,
-        color: '#707070',
-        fontFamily: "Poppins-Light",
-        fontSize: 14,
-    },
-    passtext1: {
-        marginLeft: moderateScale(8),
-        color: '#707070',
-        fontFamily: "Poppins-Light",
-        fontSize: 14,
-        flex: 1,
-    },
-
     orlines: {
         flexDirection: 'row',
         marginTop: moderateScale(15)
@@ -229,9 +200,35 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginRight: 18
     },
-    emailtextios: {
-        margin: 15
-    }
+    inputView: {
+        backgroundColor: "#FFFFFF",
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: "#D8D8D8",
+        width: "90%",
+        height: 44,
+        marginVertical: 10,
+        marginHorizontal: "5%",
+    },
+    textInput: {
+        height: '100%',
+        flex: 1,
+        width: '100%',
+        padding: 10,
+        marginRight: "auto",
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
+    },
+    forgotButton: {
+        fontFamily: "Poppins-Medium",
+        fontSize: 14,
+    },
+    forgotButtonContainer: {
+        width: '90%',
+        justifyContent: "flex-end",
+        flexDirection: "row",
+        marginHorizontal: "5%",
+    },
 });
 
 

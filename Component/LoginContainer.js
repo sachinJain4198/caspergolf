@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     },
     logintext: {
         color: 'black',
-        marginTop: verticalScale(30),
+        marginTop: moderateScale(40),
         marginLeft: '32%',
         fontSize: 24,
         fontFamily: "Poppins-SemiBold"
@@ -128,10 +128,10 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Medium",
     },
     image: {
-        marginTop: verticalScale(35),
+        marginTop: verticalScale(45),
         width: scale(20),
-        height: scale(20),
-        marginLeft: verticalScale(20),
+        height: verticalScale(20),
+        marginLeft: moderateScale(20)
     },
     innerview: {
         flexDirection: 'row',
