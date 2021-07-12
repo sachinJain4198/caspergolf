@@ -5,33 +5,17 @@ import {
     View,
     Image,
 } from "react-native";
+import Google from '../images/svg/google.svg'
+import Facebook from '../images/svg/facebook.svg'
 export default function SocialButton(props) {
 
     return (
         <>
             {props.type == "google" ?
-                <View style={styles.socialButton}>
-                    <Image
-                        style={styles.socialButtonImage}
-                        source={require('../images/google.png')}
-                    />
-                    <Text style={{ ...styles.socialIconText, color: "#666666" }}>
-                        Google
-                    </Text>
-
-                </View>
+                <Google style={styles.socialButton} />
                 :
                 <>{props.type == "facebook" ?
-                    <View style={{ ...styles.socialButton, backgroundColor: "#3B5999" }}>
-                        <Image
-                            style={styles.socialButtonImage}
-                            source={require('../images/facebook.png')}
-                        />
-                        <Text style={{ ...styles.socialIconText, color: "#FFFFFF" }}>
-                            Facebook
-                        </Text>
-
-                    </View>
+                    <Facebook style={styles.socialButton} />
                     : <View></View>}</>
             }
         </>

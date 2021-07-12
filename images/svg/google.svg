@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="45" viewBox="0 0 160 45">
+  <g id="Group_2819" data-name="Group 2819" transform="translate(-19 -652)">
+    <g id="Group_17" data-name="Group 17" transform="translate(0 85)">
+      <rect id="Rectangle_3" data-name="Rectangle 3" width="159" height="44" rx="4" transform="translate(19.5 567.5)" fill="#fff" stroke="#ccc" stroke-width="1"/>
+      <g id="Group_15" data-name="Group 15" transform="translate(0)">
+        <text id="Sign_In" data-name="Sign In" transform="translate(113.191 595)" fill="#666" font-size="14" font-family="Rubik-Medium, Rubik" font-weight="500"><tspan x="-23.394" y="0">Google</tspan></text>
+        <g id="search" transform="translate(62 581)">
+          <path id="Path_27" data-name="Path 27" d="M3.984,144.276l-.626,2.336-2.287.048A9,9,0,0,1,1,138.268h0l2.036.373.892,2.024a5.364,5.364,0,0,0,.05,3.611Z" transform="translate(0 -133.401)" fill="#fbbb00"/>
+          <path id="Path_28" data-name="Path 28" d="M270.261,208.176a8.984,8.984,0,0,1-3.2,8.688h0l-2.564-.131-.363-2.266a5.357,5.357,0,0,0,2.3-2.735h-4.806v-3.555h8.633Z" transform="translate(-252.418 -200.842)" fill="#518ef8"/>
+          <path id="Path_29" data-name="Path 29" d="M44.051,314.542h0a8.99,8.99,0,0,1-13.543-2.75l2.913-2.384a5.345,5.345,0,0,0,7.7,2.737Z" transform="translate(-29.438 -298.521)" fill="#28b446"/>
+          <path id="Path_30" data-name="Path 30" d="M42.343,2.069,39.432,4.453a5.344,5.344,0,0,0-7.879,2.8l-2.928-2.4h0A8.989,8.989,0,0,1,42.343,2.069Z" transform="translate(-27.619)" fill="#f14336"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

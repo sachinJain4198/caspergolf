@@ -1,0 +1,13 @@
+
+
+<svg xmlns="http://www.w3.org/2000/svg" width="159" height="44" viewBox="0 0 159 44">
+  <g id="Group_2818" data-name="Group 2818" transform="translate(-197 -652)">
+    <g id="Group_18" data-name="Group 18" transform="translate(0 85)">
+      <rect id="Rectangle_4" data-name="Rectangle 4" width="159" height="44" rx="4" transform="translate(197 567)" fill="#3b5999"/>
+      <g id="Group_16" data-name="Group 16" transform="translate(3)">
+        <text id="Sign_In" data-name="Sign In" transform="translate(283.308 594)" fill="#fff" font-size="14" font-family="Rubik-Medium, Rubik" font-weight="500"><tspan x="-32.494" y="0">Facebook</tspan></text>
+        <path id="facebook_3_" data-name="facebook (3)" d="M13.544,2.989h1.643V.127A21.219,21.219,0,0,0,12.794,0C7.595,0,9.009,5.887,8.8,6.75H6.187v3.2H8.8V18h3.206V9.95h2.509l.4-3.2H12.006c.141-2.118-.571-3.762,1.538-3.762Z" transform="translate(225.813 580)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
