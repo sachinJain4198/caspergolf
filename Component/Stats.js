@@ -1,6 +1,7 @@
 import React from 'react';
+import { TouchableNativeFeedback } from 'react-native';
 import { View, StyleSheet, Text, StatusBar, Button, Touchable, TouchableOpacity, Image, ScrollView } from 'react-native';
-import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+import { scale, verticalScale, moderateScale } from '../Component/Scale';
 
 export default class Stats extends React.Component {
     render() {
@@ -16,13 +17,18 @@ export default class Stats extends React.Component {
                         <View style={styles.bellView}>
                             <Image source={require('../images/bell.png')} style={styles.bellImg} resizeMode='contain' />
                         </View>
-                        <View style={styles.playView}>
+                        <TouchableOpacity style={styles.playView}>
                             <Text style={styles.playText}>Play</Text>
-                        </View>
+                        </TouchableOpacity>
                     </View>
+                    <View style={styles.line1}></View>
                     <View style={styles.view2}>
-                        <Image source={require('../images/bag.png')} style={styles.bag} />
-                        <Image source={require('../images/practice.png')} style={styles.practice} />
+                        <TouchableOpacity style={styles.bag}>
+                        <Image source={require('../images/bag.png')} style={styles.bagImg}/>
+                        </TouchableOpacity>
+                        <View style={styles.practice}>
+                        <Image source={require('../images/practice.png')} style={styles.pracImg}/>
+                        </View>
                     </View>
 
 
@@ -53,12 +59,12 @@ const styles = StyleSheet.create({
     welcome: {
         fontSize: 20,
         textAlign: 'center',
-        margin: 10,
+        margin: moderateScale(10),
     },
     instructions: {
         textAlign: 'center',
         color: '#333333',
-        marginBottom: 5,
+        marginBottom: moderateScale(5),
     },
     loginButton: {
         position: 'absolute',
@@ -69,7 +75,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         justifyContent: 'center',
         textAlign: 'center',
-        margin: 18
+        margin: moderateScale(18)
     },
     signtext: {
         alignSelf: 'center',
@@ -86,50 +92,58 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         width: '95%',
         borderRadius: 5,
-        height: 80,
+        height: verticalScale(80),
     },
     practice: {
-        width: 180,
-        height: 165,
-        marginTop: 16,
-        marginRight: 2
+        // width: scale(170),
+        // height: verticalScale(165),
+        marginTop: moderateScale(16),
+        width:'50%',
+        // backgroundColor:'red'
     },
     bag: {
-        width: 190,
-        height: 200
+        width:'50%',
+        // backgroundColor:'blue'
+        // width: scale(160),
+        // height: verticalScale(200),
+        // marginLeft:moderateScale(10),
+        // borderColor: '#00000029',
+        // borderWidth: 0.5,
     },
     view2: {
         flexDirection: 'row',
-        justifyContent: 'flex-start'
+        height:verticalScale(180),
+        // backgroundColor:'red'
+        // marginLeft:moderateScale()
     },
     playText: {
         alignSelf: 'center',
         color: '#F2F2F2',
-        marginBottom: 3,
+        marginBottom: moderateScale(3),
         fontSize: 14,
         fontWeight: '700'
     },
     playView: {
         backgroundColor: '#24B775',
         position: 'absolute',
-        right: 10,
-        margin: 15,
-        width: 80,
-        height: 35,
+        right: moderateScale(5),
+        margin: moderateScale(15),
+        width: scale(80),
+        height: verticalScale(35),
         borderRadius: 45,
         justifyContent: 'center'
     },
     bellImg: {
-        width: 20,
-        height: 20,
+        width: scale(20),
+        height: verticalScale(20),
         alignSelf: 'center'
     },
     bellView: {
         position: 'absolute',
-        right: 110,
-        marginTop: 15,
-        width: 35,
-        height: 35,
+        right: moderateScale(110),
+        marginTop: moderateScale(15),
+        width: scale(35),
+        height: verticalScale(35),
         backgroundColor: '#F2F2F2',
         borderRadius: 50,
         justifyContent: 'center'
@@ -137,19 +151,19 @@ const styles = StyleSheet.create({
     statsText: {
         fontSize: 20,
         fontWeight: '700',
-        marginLeft: 15,
-        marginTop: 20
+        marginLeft: moderateScale(15),
+        marginTop: moderateScale(20)
     },
     innerView: {
-        height: 50,
+        height: verticalScale(50),
         backgroundColor: 'white',
         flexDirection: 'row'
     },
 
     saveView: {
         position: 'absolute',
-        top: 270,
-        right: 20,
+        top: moderateScale(270),
+        right: moderateScale(20),
         justifyContent: 'center',
         alignContent: 'center'
     },
@@ -161,4 +175,20 @@ const styles = StyleSheet.create({
     save: {
         color: 'white'
     },
+    line1: {
+        marginTop: moderateScale(10),
+        borderColor: '#00000029',
+        borderWidth: 0.5,
+        overflow: 'hidden',
+        shadowColor: '#00000029',
+        shadowOpacity: 1,
+      },
+      bagImg:{
+          width:scale(165),
+          height:verticalScale(180)
+      },
+      pracImg:{
+          width:scale(180),
+          height:verticalScale(150)
+      }
 });

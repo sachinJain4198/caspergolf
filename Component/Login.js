@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, StatusBar, } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
-
+import { scale, verticalScale, moderateScale } from '../Component/Scale';
 import Logo from '../images/svg/logo.svg'
 
 class Login extends React.Component {
@@ -32,7 +31,6 @@ class Login extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    color: '#FFFFFF',
     backgroundColor: '#FFFFFF'
   },
   everythingText: {
@@ -42,10 +40,11 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontFamily: "Poppins-Medium",
   },
+
   loginButton: {
     marginTop: moderateScale(20),
     width: '90%',
-    height: 44,
+    height: scale(40),
     backgroundColor: '#24B775',
     margin: moderateScale(18),
     borderRadius: 5,
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
   signButton: {
     marginTop: moderateScale(8),
     width: '90%',
-    height: 44,
+    height: scale(40),
     backgroundColor: '#FFFFFF',
     margin: moderateScale(18),
     borderRadius: 5,
@@ -77,7 +76,9 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Medium",
   },
   image: {
-    alignSelf: 'center',
+    width: '100%',
+    justifyContent:"center",
+    alignItems:"center",
     marginTop: moderateScale(65)
   }
 });

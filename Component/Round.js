@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { View, Text, TouchableOpacity, StyleSheet, Image, StatusBar, TextInput } from 'react-native';
-import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+import { scale, verticalScale, moderateScale } from '../Component/Scale';
 import ModalDropdown from 'react-native-modal-dropdown';
 import { DatePickerDialog } from 'react-native-datepicker-dialog';
 import moment from 'moment';
+import LeftArrow from '../images/svg/leftArrow.svg';
 
-import LeftArrow from '../images/svg/leftArrow.svg'
 class Round extends React.Component {
     constructor(props) {
         super(props);
@@ -68,8 +68,8 @@ class Round extends React.Component {
 
                 />
                 <View style={styles.innerview}>
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                    <View  style={styles.image}><LeftArrow /></View></TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.image}><LeftArrow />
+                    </TouchableOpacity>
                     <Text style={styles.logintext}>Enter a Past Round</Text>
                 </View>
                 <Text style={styles.commonText}>Course</Text>
@@ -127,7 +127,7 @@ class Round extends React.Component {
 
 
 
-                <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('Practice')}>
+                <TouchableOpacity style={styles.loginButton}>
                     <Text style={styles.signtext}>Save</Text>
                 </TouchableOpacity>
             </View>
@@ -149,32 +149,34 @@ const styles = StyleSheet.create({
     },
     loginButton: {
         width: '90%',
-        height: moderateScale(40),
+        height: verticalScale(40),
         backgroundColor: '#24B775',
-        margin: verticalScale(18),
+        margin: moderateScale(18),
         borderRadius: 5,
         justifyContent: 'center',
         textAlign: 'center',
         position: 'absolute',
-        bottom: 10
+        bottom: moderateScale(10)
     },
     logintext: {
+        marginTop: verticalScale(30),
         color: 'black',
-        fontSize: 18,
-        fontWeight: '700',
-        marginTop: verticalScale(35),
-        marginLeft: '20%'
+        justifyContent: 'center',
+        textAlign: 'center',
+        flex: 1,
+        fontSize: 24,
+        fontFamily: "Poppins-SemiBold"
     },
     passtext: {
         fontSize: 15,
         width: '90%',
         margin: moderateScale(15),
-        height: verticalScale(40),
+        height: verticalScale(44),
         borderWidth: 1,
         alignSelf: 'center',
         borderRadius: 5,
         borderColor: '#D8D8D8',
-        marginTop: 30
+        marginTop: moderateScale(30)
     },
     lastext: {
         fontSize: 15,
@@ -190,112 +192,109 @@ const styles = StyleSheet.create({
     },
     simpletext: {
         alignSelf: 'center',
-        marginTop: verticalScale(10),
+        marginTop: moderateScale(10),
         color: '#000000',
-        fontSize: 14,
-        fontFamily: "Poppins-Medium",
+        fontWeight: "bold"
     },
     email: {
-        color: '#24B775',
-        fontSize: 14,
-        fontFamily: "Poppins-Medium",
+        color: '#24B775'
     },
-    
     image: {
-        marginTop: verticalScale(35),
+        marginTop: moderateScale(35),
         width: scale(20),
-        height: scale(20),
-        marginLeft: verticalScale(20),
+        height: verticalScale(20),
+        marginLeft: moderateScale(20),
     },
     innerview: {
         flexDirection: 'row',
-        marginTop: verticalScale(20)
+        marginTop: moderateScale(20)
     },
     gender: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        marginTop: 5,
+        marginTop: moderateScale(5),
     },
     male: {
         width: '26%',
         borderWidth: 1,
         borderRadius: 5,
-        height: 44,
+        height: verticalScale(44),
         borderColor: '#D8D8D8'
     },
     femaletext: {
         alignSelf: 'center',
         color: '#707070',
-        margin: 10
+        margin: moderateScale(10)
     },
     signtext: {
         alignSelf: 'center',
         color: 'white',
-        fontSize: 14,
-        fontFamily: "Poppins-Medium",
+
     },
     commonText: {
-        marginLeft: 20,
-        marginTop: 35,
+        marginLeft: moderateScale(20),
+        marginTop: moderateScale(35),
         color: '#707070'
     },
     commonText1: {
-        marginLeft: 20,
-        marginTop: 20,
+        marginLeft: moderateScale(20),
+        marginTop: moderateScale(20),
         color: '#707070'
     },
     commonView: {
         width: '90%',
-        height: 40,
+        height: verticalScale(40),
         borderRadius: 5,
         alignSelf: 'center',
         flexDirection: 'row',
         borderColor: '#D8D8D8',
-        borderWidth: 1, marginTop: 5
+        borderWidth: 1,
+        marginTop: moderateScale(5)
     },
     textInput: {
         color: '#707070',
         justifyContent: 'flex-start',
-        margin: 1, marginLeft: 10
+        margin: moderateScale(1),
+        marginLeft: moderateScale(10)
     },
     searchImg: {
-        width: 16,
-        height: 16,
+        width: scale(16),
+        height: verticalScale(16),
         position: 'absolute',
-        bottom: 12,
-        right: 12
+        bottom: moderateScale(12),
+        right: moderateScale(12)
     },
     score: {
-        marginLeft: 20,
-        marginTop: 20,
+        marginLeft: moderateScale(20),
+        marginTop: moderateScale(20),
         color: '#707070'
     },
     scoreView: {
         width: '90%',
-        height: 40,
+        height: verticalScale(40),
         borderRadius: 5,
         alignSelf: 'center',
-        marginTop: 5,
-        marginLeft: 20,
+        marginTop: moderateScale(5),
+        marginLeft: moderateScale(20),
         flexDirection: 'row',
         borderColor: '#D8D8D8',
         borderWidth: 1,
-        marginRight: 20
+        marginRight: moderateScale(20)
     },
     scoreText: {
         color: '#707070',
         justifyContent: 'flex-start',
-        margin: 1,
-        marginLeft: 10
+        margin: moderateScale(1),
+        marginLeft: moderateScale(10)
     },
     container1: {
         flex: 1,
-        paddingTop: 10,
+        paddingTop: moderateScale(10),
 
     },
     modaldropdown: {
-        marginLeft: 15,
-        marginTop: 10,
+        marginLeft: moderateScale(15),
+        marginTop: moderateScale(10),
     },
     dropdownStyle: {
         width: '83%',
@@ -309,38 +308,38 @@ const styles = StyleSheet.create({
     },
     dateView: {
         width: '90%',
-        height: 40,
+        height: verticalScale(40),
         borderRadius: 10,
         alignSelf: 'center',
-        marginTop: 5,
-        marginLeft: 20,
+        marginTop: moderateScale(5),
+        marginLeft: moderateScale(20),
         borderColor: '#D8D8D8',
-        marginRight: 20,
+        marginRight: moderateScale(20),
         borderWidth: 1
     },
     datePickerBox: {
-        marginTop: 1,
+        marginTop: moderateScale(1),
         borderColor: '#ABABAB',
-        padding: 0,
+        padding: moderateScale(0),
         borderTopLeftRadius: 4,
         borderTopRightRadius: 4,
         borderBottomLeftRadius: 4,
         borderBottomRightRadius: 4,
-        height: 38,
+        height: verticalScale(38),
         justifyContent: 'center',
         flexDirection: 'row'
     },
     datePickerText: {
         fontSize: 14,
-        marginLeft: 5,
-        marginTop: 6,
+        marginLeft: moderateScale(5),
+        marginTop: moderateScale(6),
         color: '#121212',
     },
     calendarImg: {
-        width: 30,
-        height: 30,
+        width: scale(30),
+        height: verticalScale(30),
         position: 'absolute',
-        right: 10
+        right: moderateScale(10)
     }
 });
 

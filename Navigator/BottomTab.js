@@ -7,6 +7,8 @@ import Courses from '../Component/Courses';
 import Home from '../Component/Home';
 import Stats from '../Component/Stats';
 import Icon from 'react-native-vector-icons/MaterialIcons'
+// import Video from '../Component/Video';
+// import Profile from '../Component/Profile';
 
 const MyTabs = createAppContainer(createBottomTabNavigator({
     Home:{
@@ -27,15 +29,15 @@ const MyTabs = createAppContainer(createBottomTabNavigator({
               ),      
         }
     },
-    Video:{
-        screen:Stats,
-        navigationOptions:{
-            tabBarLabel:'Videos',
-            tabBarIcon: ({ tintColor }) => (
-                <Image source={require('../images/video.png')}style={{width:30,height:30}}/>
-              ),      
-        }
-    },
+    // Video:{
+    //     screen:Video,
+    //     navigationOptions:{
+    //         tabBarLabel:'Videos',
+    //         tabBarIcon: ({ tintColor }) => (
+    //             <Image source={require('../images/video.png')}style={{width:30,height:30}}/>
+    //           ),      
+    //     }
+    // },
     Stats:{
         screen:Stats,
         navigationOptions:{
@@ -45,16 +47,16 @@ const MyTabs = createAppContainer(createBottomTabNavigator({
               ),      
         }
     },
-    Profile:{
-        screen:Stats,
-        navigationOptions:{
-            tabBarLabel:'Profile',
-            tabBarIcon: ({ tintColor }) => (
-                <Image source={require('../images/user.png')} style={{width:30,height:30}} resizeMode='contain'/>
-              ), 
+    // Profile:{
+    //     screen:Profile,
+    //     navigationOptions:{
+    //         tabBarLabel:'Profile',
+    //         tabBarIcon: ({ tintColor }) => (
+    //             <Image source={require('../images/user.png')} style={{width:30,height:30}} resizeMode='contain'/>
+    //           ), 
                 
-        }
-    }
+    //     }
+    // }
 },{
     tabBarOptions:{
         style:{

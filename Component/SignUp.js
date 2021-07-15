@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput, StatusBar } from 'react-native';
-import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
-
+import { scale, verticalScale, moderateScale } from '../Component/Scale';
 import SocialButton from './socialButton';
 import LeftArrow from '../images/svg/leftArrow.svg'
+
 class SignUp extends React.Component {
     constructor(props) {
         super(props);
@@ -28,47 +28,29 @@ class SignUp extends React.Component {
                     hidden={true}
                 />
                 <View style={styles.innerview}>
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                        <View style={styles.image}><LeftArrow /></View></TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.image}><LeftArrow />
+                    </TouchableOpacity>
                     <Text style={styles.logintext}>Create Account</Text>
                 </View>
                 <Text style={styles.verificationText}>A verification code will be sent {'\n'} to your Email Id</Text>
-                <View style={styles.inputView}>
+                <View style={styles.emailtext}>
                     <TextInput
-                        style={styles.textInput}
-                        placeholder="Enter your email"
-                        placeholderTextColor="707070"
-                    // onChangeText={email =>
-                    //     setFormValues(prevState => ({
-                    //         ...prevState,
-                    //         email: email.trim(),
-                    //         incorrectEmail: false,
-                    //     }))}
-
-                    // KeyboardType="email-address"
-                    // // assignRef={component => {
-                    // //     emailInputRef.current = component;
-                    // // }}
-                    // onBlur={() => { email.length > 0 && checkField('email', 'incorrectEmail', isEmailValid) }}
+                        style={Platform.OS == "ios" ? styles.emailtextios : styles.emailtext1}
+                        placeholder="Email ID"
+                        value={this.state.email}
+                        onChangeText={this.handleEmail}
                     />
-
                 </View>
-                <View style={{ ...styles.inputView, position: "relative" }}>
+
+                <View style={styles.passtext}>
                     <TextInput
-                        style={styles.textInput}
+                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
                         placeholder="Enter verification code"
-                        placeholderTextColor="707070"
-                    // onChangeText={password =>
-                    //     setFormValues(prevState => ({
-                    //         ...prevState,
-                    //         password: password.trim(),
-                    //         incorrectPassword: false,
-                    //     }))
-                    // }
+                        value={this.state.password}
+                        onChangeText={this.handlePass}
                     />
                     <Text style={styles.counttext}>40 s</Text>
                 </View>
-
                 <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('SignUpWithOtp')}>
                     <Text style={styles.signtext}>Sign Up</Text>
                 </TouchableOpacity>
@@ -99,29 +81,30 @@ const styles = StyleSheet.create({
     },
     verificationText: {
         textAlign: 'center',
-        marginTop: '11%',
+        marginTop: '10%',
         color: "#3B3B3B",
         alignItems: "center",
         justifyContent: "center",
         fontFamily: "Poppins-Medium",
         fontSize: 18,
-        marginBottom: moderateScale(45),
+        marginBottom: verticalScale(45),
     },
     loginButton: {
-        marginTop: "6%",
+        marginTop: moderateScale(25),
         width: '90%',
-        height: 44,
+        height: verticalScale(40),
         backgroundColor: '#24B775',
-        margin: moderateScale(18),
         borderRadius: 5,
         justifyContent: 'center',
-        textAlign: 'center'
+        textAlign: 'center',
+        alignSelf: "center"
     },
     logintext: {
-        alignSelf: 'center',
+        marginTop: verticalScale(30),
         color: 'black',
-        marginTop: moderateScale(40),
-        marginLeft: '18%',
+        justifyContent: 'center',
+        textAlign: 'center',
+        flex: 1,
         fontSize: 24,
         fontFamily: "Poppins-SemiBold"
     },
@@ -131,10 +114,10 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: "Poppins-Medium",
     },
+
     ortext: {
         alignSelf: 'center',
         paddingHorizontal: 8,
-        color: "#999999",
         fontFamily: "Poppins-Light",
         fontSize: 14
     },
@@ -143,36 +126,70 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: moderateScale(15)
     },
+    emailtext: {
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
+        width: '90%',
+        height: verticalScale(44),
+        borderWidth: 1,
+        alignSelf: 'center',
+        borderRadius: 5,
+        borderColor: '#D8D8D8',
+        marginBottom: 20
+    },
+    passtext: {
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
+        width: '90%',
+        height: verticalScale(44),
+        borderWidth: 1,
+        alignSelf: 'center',
+        alignContent: "center",
+        alignItems: "center",
+        borderRadius: 5,
+        borderColor: '#D8D8D8',
+        flexDirection: 'row'
+    },
+
     image: {
-        marginTop: moderateScale(45),
+        marginTop: verticalScale(35),
         width: scale(20),
-        height: verticalScale(20),
-        marginLeft: moderateScale(20)
+        height: scale(20),
+        marginLeft: verticalScale(20),
+        zIndex: 1,
+        position: "absolute"
     },
     innerview: {
         flexDirection: 'row',
         marginTop: moderateScale(20)
     },
-
+    emailtext1: {
+        marginLeft: moderateScale(8),
+    },
+    passtext1: {
+        marginLeft: moderateScale(8),
+    },
     orlines: {
         flexDirection: 'row',
-        marginTop: moderateScale(15)
+        marginTop: moderateScale(30)
     },
     lines: {
         backgroundColor: '#EDEDED',
-        height: 1,
+        height: verticalScale(1),
         flex: 1,
         alignSelf: 'center',
-        marginLeft: 18
+        marginLeft: moderateScale(18)
     },
     lines1: {
         backgroundColor: '#EDEDED',
-        height: 1,
+        height: verticalScale(1),
         flex: 1,
         alignSelf: 'center',
-        marginRight: 18
+        marginRight: moderateScale(18)
     },
-
+    emailtextios: {
+        margin: moderateScale(15)
+    },
     termsPolicyText: {
         flex: 1,
         color: "#000000",
@@ -181,6 +198,7 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Regular",
         fontSize: 12,
         textAlign: "center",
+        marginTop: 10,
     },
     counttext: {
         position: 'absolute',
@@ -194,29 +212,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'space-around',
-        marginTop: 30,
+        marginTop: 25,
     },
-    inputView: {
-        backgroundColor: "#FFFFFF",
-        borderRadius: 5,
-        borderWidth: 1,
-        borderColor: "#D8D8D8",
-        width: "90%",
-        height: 44,
-        marginVertical: 10,
-        marginHorizontal: "5%",
-        justifyContent: "center",
-        alignContent: "center",
-    },
-    textInput: {
-        height: '100%',
-        flex: 1,
-        width: '100%',
-        padding: 10,
-        marginRight: "auto",
-        fontFamily: "Poppins-Light",
-        fontSize: 14,
-    },
+
+
 });
 
 export default SignUp;

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { Card } from 'react-native-elements';
 import Modal from 'react-native-modal';
-import { verticalScale } from 'react-native-size-matters';
+import { scale, verticalScale, moderateScale } from '../Component/Scale';
 
 
 class Home extends Component {
@@ -41,45 +41,45 @@ class Home extends Component {
             </View>
           </View>
 
-          <Card>
-            <View style={styles.cardView}>
-              <Image source={require('../images/home.jpeg')} style={styles.homeImg} />
-              <View style={styles.innetText}>
-                <Text>Martin Kaymer</Text>
-                <Text style={{ color: '#707070' }}>4h ago</Text>
-              </View>
+          <View style={styles.line1}></View>
+          <View style={styles.cardView}>
+            <Image source={require('../images/home.jpeg')} style={styles.homeImg} />
+            <View style={styles.innetText}>
+              <Text style={styles.textStyle}>Martin Kaymer</Text>
+              <Text style={{ color: '#707070' }}>4h ago</Text>
             </View>
+          </View>
 
-            {/* <Card.Divider /> */}
-            <Card.Image source={require('../images/home.jpeg')} style={{ marginTop: 10 }}>
-            </Card.Image>
-            <Text style={{ marginTop: 5, color: '#707070' }}>
-              Ready to dive into your stats and understand where and how to most efficiently improve your game? Below is your to-do list for the week.    </Text>
-          </Card>
+          <Card.Image source={require('../images/home.jpeg')} style={{ marginTop: 10 }}>
+          </Card.Image>
+          <Text style={styles.newText}>
+            Ready to dive into your stats and understand where and how to most efficiently improve your game? Below is your to-do list for the week.    </Text>
+          <View style={styles.line2}></View>
           <View style={styles.sameCard}>
             <Image source={require('../images/heart.png')} style={styles.heartImg}></Image>
             <Text style={styles.unlikeText}>Unlike</Text>
             <Image source={require('../images/comment.png')} style={styles.commentImg} resizeMode='contain'></Image>
             <Text style={styles.unlikeText}>Comment</Text>
           </View>
-          <Card>
-            <View style={styles.cardView}>
-              <Image source={require('../images/home.jpeg')} style={styles.homeImg} />
-              <View style={styles.roganText}>
-                <Text>Reagan Roth at <Text style={{ color: '#24B775' }}>Arrowhead</Text>.</Text>
-                <Text style={{ color: '#707070' }}>1 day ago</Text>
-              </View>
-            </View>
 
-            {/* <Card.Divider /> */}
-            <Card.Image source={require('../images/home.jpeg')} style={{ marginTop: 10 }}>
-            </Card.Image>
-            <Text style={{ marginTop: 5, color: '#707070' }}>
-              Want to know why golf has struggled to grow? The answer is simple: It's a difficult sport to play – and even harder to learn.    </Text>
-            <TouchableOpacity style={styles.notesView} onPress={() => this.setState({ modalvisible: true })}>
-              <Image source={require('../images/notes.png')} style={styles.notesImg} resizeMode='contain'></Image>
-            </TouchableOpacity>
-          </Card>
+          <View style={styles.cardView}>
+            <Image source={require('../images/home.jpeg')} style={styles.homeImg} />
+            <View style={styles.roganText}>
+              <Text>Reagan Roth at <Text style={{ color: '#24B775' }}>Arrowhead</Text>.</Text>
+              <Text style={{ color: '#707070' }}>1 day ago</Text>
+            </View>
+          </View>
+
+
+          <Card.Image source={require('../images/home.jpeg')} style={{ marginTop: 10 }}>
+          </Card.Image>
+          <Text style={styles.newText}>
+            Want to know why golf has struggled to grow? The answer is simple: It's a difficult sport to play – and even harder to learn.    </Text>
+          <View style={styles.line2}></View>
+          <TouchableOpacity style={styles.notesView} onPress={() => this.setState({ modalvisible: true })}>
+            <Image source={require('../images/notes.png')} style={styles.notesImg} resizeMode='contain'></Image>
+          </TouchableOpacity>
+
 
           <View style={styles.sameCard}>
             <Image source={require('../images/heart.png')} style={styles.heartImg}></Image>
@@ -90,12 +90,9 @@ class Home extends Component {
 
 
           <Modal
-            //  animationType={'fade'}
-            //  transparent={true}
             visible={this.state.modalvisible}
             style={styles.modal}
           >
-            {/* <StatusBar translucent={true} backgroundColor={'transparent'} /> */}
             <View style={styles.modalView}>
               <View style={styles.modalInner}>
                 <Text style={styles.modalText}>Create Post</Text>
@@ -145,23 +142,23 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: moderateScale(10),
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    marginBottom: moderateScale(5),
   },
   loginButton: {
     position: 'absolute',
     width: '90%',
     height: verticalScale(40),
     backgroundColor: '#24B775',
-    bottom: 0,
+    bottom: moderateScale(0),
     borderRadius: 5,
     justifyContent: 'center',
     textAlign: 'center',
-    margin: 18
+    margin: moderateScale(18)
   },
   signtext: {
     alignSelf: 'center',
@@ -169,103 +166,106 @@ const styles = StyleSheet.create({
     fontSize: 15
   },
   innerView: {
-    height: 50,
+    height: verticalScale(50),
     backgroundColor: 'white',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   casper: {
     fontSize: 20,
     fontWeight: '700',
-    marginLeft: 15,
-    marginTop: 20
+    marginLeft: moderateScale(15),
+    marginTop: moderateScale(20)
   },
   view1: {
     position: 'absolute',
-    right: 110,
-    marginTop: 15,
-    width: 35,
-    height: 35,
+    right: moderateScale(110),
+    marginTop: moderateScale(15),
+    width: scale(35),
+    height: verticalScale(35),
     backgroundColor: '#F2F2F2',
     borderRadius: 50,
     justifyContent: 'center'
   },
   bellImg: {
-    width: 20,
-    height: 20,
+    width: scale(20),
+    height: verticalScale(20),
     alignSelf: 'center'
   },
   playView: {
     backgroundColor: '#24B775',
     position: 'absolute',
-    right: 10,
-    margin: 15,
-    width: 80,
-    height: 35,
+    right: moderateScale(5),
+    margin: moderateScale(15),
+    width: scale(80),
+    height: verticalScale(35),
     borderRadius: 45,
     justifyContent: 'center'
   },
   playText: {
     alignSelf: 'center',
     color: '#F2F2F2',
-    marginBottom: 3,
+    marginBottom: moderateScale(3),
     fontSize: 14,
     fontWeight: '700'
   },
   cardView: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginTop: moderateScale(30)
+
   },
   homeImg: {
-    width: 40,
-    height: 40,
+    width: scale(40),
+    height: verticalScale(40),
     borderRadius: 50,
     borderWidth: 1,
-    borderColor: '#24B775'
+    borderColor: '#24B775',
+    marginLeft: moderateScale(20)
   },
   innetText: {
     flexDirection: 'column',
-    marginLeft: 10
+    marginLeft: moderateScale(10)
   },
   sameCard: {
     flexDirection: 'row',
-    marginTop: 10
+    marginTop: moderateScale(10)
   },
   heartImg: {
-    width: 20,
-    height: 20,
-    marginLeft: 20
+    width: scale(20),
+    height: verticalScale(20),
+    marginLeft: moderateScale(20)
   },
   unlikeText: {
-    marginLeft: 10,
+    marginLeft: moderateScale(10),
     color: '#707070'
   },
   commentImg: {
-    width: 20,
-    height: 20,
-    marginLeft: 10
+    width: scale(20),
+    height: verticalScale(20),
+    marginLeft: moderateScale(10)
   },
   roganText: {
     flexDirection: 'column',
-    marginLeft: 10
+    marginLeft: moderateScale(10)
   },
   notesView: {
     position: 'absolute',
     bottom: '8%',
-    right: 10,
+    right: moderateScale(10),
     backgroundColor: '#24B775',
-    width: '18%',
-    height: '20%',
+    width: '16%',
+    height: '9%',
     borderRadius: 80
   },
   notesImg: {
-    width: 30,
-    height: 30,
+    width: scale(30),
+    height: verticalScale(30),
     alignSelf: 'center',
-    marginTop: 13,
-    marginLeft: 5
+    marginTop: moderateScale(15),
+    marginLeft: moderateScale(5)
   },
   modal: {
-    marginLeft: 0,
-    marginRight: 0,
+    marginLeft: moderateScale(0),
+    marginRight: moderateScale(0),
     backgroundColor: 'rgba(100,100,100, 0.9)',
   },
   modalView: {
@@ -278,49 +278,72 @@ const styles = StyleSheet.create({
   },
   modalInner: {
     flexDirection: 'row',
-    marginTop: 10,
+    marginTop: moderateScale(10),
     justifyContent: 'center',
-    height: 20
+    height: verticalScale(20)
   },
   modalText: {
     alignSelf: 'center',
     fontWeight: "700"
   },
   cancelImg: {
-    width: 14,
-    height: 14,
+    width: scale(14),
+    height: verticalScale(14),
     position: 'absolute',
-    left: 350,
-    top: 5
+    left: moderateScale(330),
+    top: moderateScale(5)
   },
   line: {
-    height: 0.2,
+    height: moderateScale(0.2),
     backgroundColor: '#D4D4D4',
-    margin: 10,
-    marginTop: 15
+    margin: moderateScale(10),
+    marginTop: moderateScale(15)
   },
   modalTextView: {
-    marginLeft: 10
+    marginLeft: moderateScale(10)
   },
   lastView: {
     flexDirection: 'row',
     position: 'absolute',
-    bottom: 70,
-    right: 20,
+    bottom: moderateScale(70),
+    right: moderateScale(20),
     justifyContent: 'space-evenly'
   },
   comment: {
-    width: 20,
-    height: 20,
-    margin: 10
+    width: scale(20),
+    height: verticalScale(20),
+    margin: moderateScale(10)
   },
   imageView: {
     backgroundColor: 'red',
-    width: 40,
-    height: 40,
+    width: scale(40),
+    height: verticalScale(40),
     borderRadius: 50,
     backgroundColor: '#F5F5F5'
-  }
+  },
+  textStyle: {
+    fontWeight: "700"
+  },
+  newText: {
+    marginTop: moderateScale(5),
+    color: '#707070',
+    alignSelf: 'center',
+    margin: moderateScale(15)
+  },
+  line1: {
+    marginTop: moderateScale(10),
+    borderColor: '#00000029',
+    borderWidth: 0.5,
+    overflow: 'hidden',
+    shadowColor: '#00000029',
+    shadowOpacity: 1,
+  },
+  line2: {
+    height: 1,
+    backgroundColor: '#EDEDED',
+    marginLeft: moderateScale(10),
+    marginRight: moderateScale(10)
+  },
 });
 
 export default Home;

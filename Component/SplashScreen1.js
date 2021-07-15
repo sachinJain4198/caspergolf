@@ -1,39 +1,36 @@
 import React from 'react';
-import { Text } from 'react-native';
 
-import { View, StyleSheet } from 'react-native';
-import SvgCssUri from 'react-native-svg';
-
+import {View,StyleSheet,Image,StatusBar} from 'react-native';
 import SplashScreen from 'react-native-splash-screen'
-import Logo from '../images/svg/logo.svg'
+import { scale, verticalScale, moderateScale } from '../Component/Scale';
 
-export default class SplashScreen1 extends React.Component {
+export default class SplashScreen1 extends React.Component{
 
-    componentDidMount() {
+    componentDidMount(){
         SplashScreen.hide();
-        setTimeout(() => {
+        setTimeout(()=>{
             this.props.navigation.navigate('Login')
-        }, 1500)
+        },1500)
     }
 
-    render() {
-        return (
+    render(){
+        return(
+            
             <View style={styles.container}>
-                <Logo />
-            </View >
+                <StatusBar hidden={true}/>
+                <Image source={require('../images/splash.jpeg')} style={styles.images} resizeMode='stretch'/>
+            </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems:"center",
+    container:{
+        flex:1,
     },
-    images: {
-      
-        width: '100%',
-        flex: 1,
+    images:{
+        width:scale(350),
+        height:verticalScale(700),
+        backgroundColor:'#707070'
     }
 })

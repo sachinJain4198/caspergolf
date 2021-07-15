@@ -1,12 +1,11 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Platform, TextInput, StatusBar } from 'react-native';
-import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
-
 
 import { connect } from 'react-redux';
 import { changeEmail } from '../store/actions/basicActions';
 import SocialButton from './socialButton';
-import LeftArrow from '../images/svg/leftArrow.svg'
+import LeftArrow from '../images/svg/leftArrow.svg';
+import { scale, verticalScale, moderateScale } from '../Component/Scale';
 
 class LoginWithEmail extends React.Component {
     constructor(props) {
@@ -15,7 +14,6 @@ class LoginWithEmail extends React.Component {
             email: '',
             password: '',
         }
-
         let { actions } = this.props;
 
 
@@ -37,49 +35,29 @@ class LoginWithEmail extends React.Component {
                     hidden={true}
                 />
                 <View style={styles.innerview}>
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                        <View style={styles.image}><LeftArrow /></View></TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.image}><LeftArrow />
+                    </TouchableOpacity>
                     <Text style={styles.logintext}>Login</Text>
                 </View>
-                <Text style={styles.verificationText}>A verification code will be {'\n'} sent to your Email Id </Text>
-                <View style={styles.inputView}>
+                <Text style={styles.verificationText}>A verification code will be {'\n'} sent to your Email Id</Text>
+                <View style={styles.emailtext}>
                     <TextInput
-                        style={styles.textInput}
+                        style={Platform.OS == "ios" ? styles.emailtextios : styles.emailtext1}
                         placeholder="Email ID"
-                        placeholderTextColor="707070"
-                    // onChangeText={email =>
-                    //     setFormValues(prevState => ({
-                    //         ...prevState,
-                    //         email: email.trim(),
-                    //         incorrectEmail: false,
-                    //     }))}
-
-                    // KeyboardType="email-address"
-                    // // assignRef={component => {
-                    // //     emailInputRef.current = component;
-                    // // }}
-                    // onBlur={() => { email.length > 0 && checkField('email', 'incorrectEmail', isEmailValid) }}
+                        value={this.state.email}
+                        onChangeText={this.handleEmail}
                     />
                 </View>
 
-                <View style={styles.inputView}>
+                <View style={styles.passtext}>
                     <TextInput
-                        style={styles.textInput}
+                        style={Platform.OS == "ios" ? styles.emailtextios : styles.passtext1}
                         placeholder="Password"
-                        textContentType="password"
-                        secureTextEntry={true}
-                        placeholderTextColor="707070"
-                    // onChangeText={password =>
-                    //     setFormValues(prevState => ({
-                    //         ...prevState,
-                    //         password: password.trim(),
-                    //         incorrectPassword: false,
-                    //     }))
-                    // }
-
-
+                        value={this.state.password}
+                        onChangeText={this.handlePass}
                     />
                 </View>
+
                 <View style={styles.forgotButtonContainer}>
                     <TouchableOpacity>
                         <Text style={styles.forgotButton}>Forgot Password?</Text>
@@ -94,11 +72,11 @@ class LoginWithEmail extends React.Component {
                     <Text style={styles.ortext}>OR</Text>
                     <View style={styles.lines1} />
                 </View>
-
                 <View style={styles.socialIconContainer}>
                     <SocialButton type="google" />
                     <SocialButton type="facebook" />
                 </View>
+
             </View>
 
         )
@@ -107,7 +85,6 @@ class LoginWithEmail extends React.Component {
 
 
 const styles = StyleSheet.create({
-
     container: {
         flex: 1,
         backgroundColor: '#FFFFFF'
@@ -120,48 +97,63 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         fontFamily: "Poppins-Medium",
         fontSize: 18,
-        marginBottom: "12%"
     },
+
     loginButton: {
-        marginTop: moderateScale(30),
+        marginTop: verticalScale(25),
         width: '90%',
         height: 44,
         backgroundColor: '#24B775',
-        margin: moderateScale(18),
         borderRadius: 5,
         justifyContent: 'center',
-        textAlign: 'center'
+        textAlign: 'center',
+        alignSelf: 'center',
     },
     logintext: {
-        alignSelf: 'center',
+        marginTop: verticalScale(30),
         color: 'black',
-        marginTop: moderateScale(40),
-        marginLeft: '32%',
+        textAlign: 'center',
+        flex: 1,
         fontSize: 24,
-        fontFamily: "Poppins-SemiBold"
+        fontFamily: "Poppins-SemiBold",
     },
     signtext: {
         alignSelf: 'center',
         color: '#FFFFFF',
         fontSize: 14,
         fontFamily: "Poppins-Medium",
+
     },
     simpletext: {
         alignSelf: 'center',
-        marginTop: 3,
-        marginBottom: moderateScale(15),
+        marginBottom: verticalScale(15),
         color: '#000000',
         fontSize: 14,
         fontFamily: "Poppins-Medium",
+        marginTop: verticalScale(20),
+
     },
     email: {
         color: '#24B775',
         fontSize: 14,
         fontFamily: "Poppins-Medium",
     },
+    forgetPass: {
+        position: 'absolute',
+        right: moderateScale(20),
+        marginTop: verticalScale(380),
+        fontWeight: "bold"
+    },
+    forgetPassios: {
+        position: 'absolute',
+        right: moderateScale(20),
+        marginTop: verticalScale(370),
+        fontWeight: "bold"
+    },
     ortext: {
         alignSelf: 'center',
-        paddingHorizontal: 8, color: "#999999",
+        color: '#999999',
+        paddingHorizontal: 8,
         fontFamily: "Poppins-Light",
         fontSize: 14
     },
@@ -170,17 +162,51 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'space-around',
-        marginTop: 30,
+        marginTop: verticalScale(25),
+    },
+    emailtext: {
+        width: '90%',
+        height: verticalScale(44),
+        marginBottom: 10,
+        borderWidth: 1,
+        alignSelf: 'center',
+        borderRadius: 5,
+        borderColor: '#D8D8D8',
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
+        marginTop: verticalScale(50)
+    },
+    passtext: {
+        width: '90%',
+        height: verticalScale(44),
+        marginBottom: 10,
+        marginTop: 10,
+        borderWidth: 1,
+        alignSelf: 'center',
+        borderRadius: 5,
+        borderColor: '#D8D8D8',
+        fontFamily: "Poppins-Light",
+        fontSize: 14,
     },
     image: {
-        marginTop: verticalScale(45),
+        marginTop: verticalScale(35),
         width: scale(20),
-        height: verticalScale(20),
-        marginLeft: moderateScale(20)
+        height: scale(20),
+        marginLeft: verticalScale(20),
+        zIndex: 1,
+        position: "absolute"
     },
     innerview: {
         flexDirection: 'row',
         marginTop: moderateScale(20)
+    },
+    emailtext1: {
+        marginLeft: 8,
+        backgroundColor: '#FFFFFF',
+        color: 'red'
+    },
+    passtext1: {
+        marginLeft: moderateScale(8),
     },
     orlines: {
         flexDirection: 'row',
@@ -200,24 +226,8 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginRight: 18
     },
-    inputView: {
-        backgroundColor: "#FFFFFF",
-        borderRadius: 5,
-        borderWidth: 1,
-        borderColor: "#D8D8D8",
-        width: "90%",
-        height: 44,
-        marginVertical: 10,
-        marginHorizontal: "5%",
-    },
-    textInput: {
-        height: '100%',
-        flex: 1,
-        width: '100%',
-        padding: 10,
-        marginRight: "auto",
-        fontFamily: "Poppins-Light",
-        fontSize: 14,
+    emailtextios: {
+        margin: 15
     },
     forgotButton: {
         fontFamily: "Poppins-Medium",

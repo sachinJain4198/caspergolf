@@ -14,6 +14,7 @@ import SignUpWithOtp from '../Component/SignUpWithOtp';
 import Welcome from '../Component/Welcome';
 import Stats from '../Component/Stats';
 import Round from '../Component/Round';
+import Practice from '../Component/Practice';
 
 export default class StackNavigator extends React.Component {
   render() {
@@ -48,13 +49,17 @@ const StackApp = createStackNavigator({
   },
   Welcome:{
     screen:Welcome
-  }, 
+  },
   Stats:{
     screen:Stats
   },
   Round:{
     screen:Round
   },
+  Practice:{
+    screen:Practice
+  },
+  
 },{
   headerMode:'none'
 });

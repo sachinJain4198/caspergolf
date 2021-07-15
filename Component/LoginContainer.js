@@ -2,8 +2,7 @@ import React from 'react';
 
 import { View, Text, TouchableOpacity, StyleSheet, Image, StatusBar, TextInput } from 'react-native';
 import PhoneInput from "react-native-phone-number-input";
-import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
-
+import { scale, verticalScale, moderateScale } from '../Component/Scale';
 import LeftArrow from '../images/svg/leftArrow.svg'
 
 
@@ -31,7 +30,7 @@ class LoginContainer extends React.Component {
                     hidden={true}
                 />
                 <View style={styles.innerview}>
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}><View style={styles.image}><LeftArrow /></View>
+                    <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.image}><LeftArrow />
                     </TouchableOpacity>
                     <Text style={styles.logintext}>Login</Text>
                 </View>
@@ -53,7 +52,11 @@ class LoginContainer extends React.Component {
                     textContainerStyle={styles.textContainerStyle}
                     codeTextStyle={styles.codeTextStyle}
                     textInputStyle={this.state.value.length ? { ...styles.textInputStyle } : { ...styles.textInputStyle, ...styles.placeholderStyle }}
+                    flagButtonStyle={styles.flagButtonStyle}
 
+                    countryPickerButtonStyle={styles.countryPickerButtonStyle
+
+                    }
                 />
 
                 <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('LoginWithEmail')}>
@@ -84,26 +87,28 @@ const styles = StyleSheet.create({
     },
     loginButton: {
         width: '90%',
-        height: 44,
+        height: verticalScale(44),
         backgroundColor: '#24B775',
-        margin: verticalScale(18),
+        alignSelf: 'center',
         borderRadius: 5,
         justifyContent: 'center',
         textAlign: 'center',
-        marginTop: 35
+        marginTop: 30
     },
+
     logintext: {
+        marginTop: verticalScale(30),
         color: 'black',
-        marginTop: moderateScale(40),
-        marginLeft: '32%',
+        textAlign: 'center',
+        flex: 1,
         fontSize: 24,
-        fontFamily: "Poppins-SemiBold"
+        fontFamily: "Poppins-SemiBold",
     },
     phoneInput: {
         borderWidth: 1,
         marginTop: verticalScale(80),
         width: '90%',
-        height: moderateScale(45),
+        height: verticalScale(44),
         justifyContent: 'center',
         alignItems: 'center',
         margin: verticalScale(18),
@@ -112,14 +117,13 @@ const styles = StyleSheet.create({
     },
     signtext: {
         alignSelf: 'center',
-        color: 'white',
+        color: '#FFFFFF',
         fontSize: 14,
         fontFamily: "Poppins-Medium",
     },
     simpletext: {
         alignSelf: 'center',
-        marginTop: 3,
-        color: '#000000',
+        marginTop: verticalScale(20),
         fontSize: 14,
         fontFamily: "Poppins-Medium",
     },
@@ -129,10 +133,12 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Medium",
     },
     image: {
-        marginTop: verticalScale(45),
+        marginTop: verticalScale(35),
         width: scale(20),
-        height: verticalScale(20),
-        marginLeft: moderateScale(20)
+        height: scale(20),
+        marginLeft: verticalScale(20),
+        zIndex: 1,
+        position: "absolute"
     },
     innerview: {
         flexDirection: 'row',
@@ -140,9 +146,9 @@ const styles = StyleSheet.create({
     },
     containerStyle: {
         width: '90%',
-        height: 44,
+        height: verticalScale(44),
         alignSelf: 'center',
-        marginTop: 65,
+        marginTop: verticalScale(50),
         borderColor: '#D8D8D8',
         borderWidth: 1,
         borderRadius: 5
@@ -153,21 +159,40 @@ const styles = StyleSheet.create({
         borderColor: '#D8D8D8',
     },
     codeTextStyle: {
-        height: 40,
+        height: verticalScale(44),
         alignSelf: 'center',
-        marginTop: 20,
+        marginTop: verticalScale(20),
         fontSize: 14,
         fontFamily: "Poppins-Medium",
     },
     textInputStyle: {
-        height: 80,
-        marginTop: 2,
+        // backgroundColor:'red',
+        height: verticalScale(44),
         fontSize: 14,
         fontFamily: "Poppins-Medium",
+        fontSize: 14,
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        alignSelf: "center",
+        // marginTop: moderateScale(3)
     },
     placeholderStyle: {
+        height: verticalScale(44),
         fontFamily: "Poppins-Light",
+        fontSize: 14,
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        alignSelf: "center",
+
+    },
+    flagButtonStyle: {
+        width: 73,
+        borderRadius: 0,
     }
 });
 
+
 export default LoginContainer;
+
